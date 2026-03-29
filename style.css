@@ -60,7 +60,7 @@ body {
 }
 
 .profile-card {
-  background: #f0ebe4;
+  background: #f3f9fe;
   padding: 32px 24px;
   text-align: center;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
@@ -83,7 +83,7 @@ body {
 .profile-line {
   width: 52px;
   height: 3px;
-  background: #5e7df1;
+  background: var(--blue);
   margin: 16px auto;
 }
 
@@ -120,15 +120,14 @@ body {
 }
 
 .btn.primary {
-  background: #345cff;
+  background: var(--blue);
   color: white;
 }
 
 .btn.secondary {
-  border: 2px solid #333;
-  color: #333;
+  border: 2px solid var(--blue);
+  color: var(--blue);
 }
-
 .content-section {
   margin: 56px 0;
 }
