@@ -23,94 +23,48 @@
       <p>Selected engineering and academic projects</p>
     </section>
 
-    <section class="project-list">
+    <section class="project-grid-small">
 
-      <div class="accordion-card">
-        <div class="accordion-header" onclick="toggleProject(this)">
+      <div class="mini-card">
+        <div class="mini-card-header" onclick="toggleProject(this)">
           <div>
-            <h2>MOSFET I-V Characteristics Experiment</h2>
+            <h2>MOSFET I-V Characteristics</h2>
             <span class="project-date">Ongoing</span>
           </div>
-          <button class="accordion-btn" type="button">+</button>
+          <span class="mini-plus">+</span>
         </div>
 
-        <div class="accordion-content">
-          <p>
-            This project focuses on analyzing the current-voltage characteristics of a MOSFET and
-            connecting measured device behavior to semiconductor theory.
-          </p>
-
-          <p>
-            I am studying how current changes under different operating conditions and how this behavior
-            relates to concepts such as cutoff, triode, and saturation regions. The goal is to better
-            understand semiconductor device operation not only mathematically, but also from a physical
-            engineering perspective.
-          </p>
-
-          <p><strong>Skills / Concepts:</strong></p>
-          <ul>
-            <li>Semiconductor device fundamentals</li>
-            <li>Experimental analysis</li>
-            <li>Electrical measurement and interpretation</li>
-            <li>Connecting theory with real device behavior</li>
-          </ul>
+        <div class="mini-card-body">
+          <p>Write your detailed description here.</p>
+          <p>Methods, results, skills, and future work can go here.</p>
         </div>
       </div>
 
-      <div class="accordion-card">
-        <div class="accordion-header" onclick="toggleProject(this)">
+      <div class="mini-card">
+        <div class="mini-card-header" onclick="toggleProject(this)">
           <div>
-            <h2>Digital System Design Project</h2>
+            <h2>Digital System Design</h2>
             <span class="project-date">Completed</span>
           </div>
-          <button class="accordion-btn" type="button">+</button>
+          <span class="mini-plus">+</span>
         </div>
 
-        <div class="accordion-content">
-          <p>
-            This project involved digital logic design and hardware-oriented problem solving.
-          </p>
-
-          <p>
-            Through this work, I learned how to think systematically about hardware behavior, logic
-            structure, and practical implementation. It helped strengthen my understanding of how
-            abstract digital concepts are translated into working engineering systems.
-          </p>
-
-          <p><strong>Skills / Concepts:</strong></p>
-          <ul>
-            <li>Digital logic design</li>
-            <li>Hardware reasoning</li>
-            <li>Structured engineering problem solving</li>
-          </ul>
+        <div class="mini-card-body">
+          <p>Write your detailed description here.</p>
         </div>
       </div>
 
-      <div class="accordion-card">
-        <div class="accordion-header" onclick="toggleProject(this)">
+      <div class="mini-card">
+        <div class="mini-card-header" onclick="toggleProject(this)">
           <div>
             <h2>Solar Panel Monitoring System</h2>
             <span class="project-date">Completed</span>
           </div>
-          <button class="accordion-btn" type="button">+</button>
+          <span class="mini-plus">+</span>
         </div>
 
-        <div class="accordion-content">
-          <p>
-            This project focused on monitoring and interpreting electrical data from a solar panel system.
-          </p>
-
-          <p>
-            It gave me experience in measurement-based engineering thinking and helped me understand how
-            hardware performance can be observed and evaluated through electrical signals and system data.
-          </p>
-
-          <p><strong>Skills / Concepts:</strong></p>
-          <ul>
-            <li>System monitoring</li>
-            <li>Electrical data interpretation</li>
-            <li>Applied circuit understanding</li>
-          </ul>
+        <div class="mini-card-body">
+          <p>Write your detailed description here.</p>
         </div>
       </div>
 
@@ -121,9 +75,8 @@
     function toggleProject(header) {
       const card = header.parentElement;
       card.classList.toggle("open");
-
-      const btn = header.querySelector(".accordion-btn");
-      btn.textContent = card.classList.contains("open") ? "−" : "+";
+      const plus = header.querySelector(".mini-plus");
+      plus.textContent = card.classList.contains("open") ? "−" : "+";
     }
   </script>
 
