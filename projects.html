@@ -1,82 +1,131 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Projects</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Jinwoo Lee</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>Projects</h1>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<div class="project-card">
+  <main class="page">
+    <section class="page-title-block">
+      <h1>Projects</h1>
+      <p>Selected engineering and academic projects</p>
+    </section>
 
-<div class="project-header" onclick="toggleProject(this)">
+    <section class="project-list">
 
-<div class="project-title">
-MOSFET I-V Characteristics Experiment
-</div>
+      <div class="accordion-card">
+        <div class="accordion-header" onclick="toggleProject(this)">
+          <div>
+            <h2>MOSFET I-V Characteristics Experiment</h2>
+            <span class="project-date">Ongoing</span>
+          </div>
+          <button class="accordion-btn" type="button">+</button>
+        </div>
 
-<div class="toggle-btn">
-+
-</div>
+        <div class="accordion-content">
+          <p>
+            This project focuses on analyzing the current-voltage characteristics of a MOSFET and
+            connecting measured device behavior to semiconductor theory.
+          </p>
 
-</div>
+          <p>
+            I am studying how current changes under different operating conditions and how this behavior
+            relates to concepts such as cutoff, triode, and saturation regions. The goal is to better
+            understand semiconductor device operation not only mathematically, but also from a physical
+            engineering perspective.
+          </p>
 
-<div class="project-content">
+          <p><strong>Skills / Concepts:</strong></p>
+          <ul>
+            <li>Semiconductor device fundamentals</li>
+            <li>Experimental analysis</li>
+            <li>Electrical measurement and interpretation</li>
+            <li>Connecting theory with real device behavior</li>
+          </ul>
+        </div>
+      </div>
 
-<p>
-This project analyzes MOSFET current-voltage behavior and connects measurements to semiconductor theory.
-</p>
+      <div class="accordion-card">
+        <div class="accordion-header" onclick="toggleProject(this)">
+          <div>
+            <h2>Digital System Design Project</h2>
+            <span class="project-date">Completed</span>
+          </div>
+          <button class="accordion-btn" type="button">+</button>
+        </div>
 
-<p>
-Skills:
-<br>
-- Measurement
-<br>
-- Data analysis
-<br>
-- Circuit understanding
-</p>
+        <div class="accordion-content">
+          <p>
+            This project involved digital logic design and hardware-oriented problem solving.
+          </p>
 
-</div>
+          <p>
+            Through this work, I learned how to think systematically about hardware behavior, logic
+            structure, and practical implementation. It helped strengthen my understanding of how
+            abstract digital concepts are translated into working engineering systems.
+          </p>
 
-</div>
+          <p><strong>Skills / Concepts:</strong></p>
+          <ul>
+            <li>Digital logic design</li>
+            <li>Hardware reasoning</li>
+            <li>Structured engineering problem solving</li>
+          </ul>
+        </div>
+      </div>
 
-<script>
+      <div class="accordion-card">
+        <div class="accordion-header" onclick="toggleProject(this)">
+          <div>
+            <h2>Solar Panel Monitoring System</h2>
+            <span class="project-date">Completed</span>
+          </div>
+          <button class="accordion-btn" type="button">+</button>
+        </div>
 
-function toggleProject(header) {
+        <div class="accordion-content">
+          <p>
+            This project focused on monitoring and interpreting electrical data from a solar panel system.
+          </p>
 
-const content =
-header.nextElementSibling;
+          <p>
+            It gave me experience in measurement-based engineering thinking and helped me understand how
+            hardware performance can be observed and evaluated through electrical signals and system data.
+          </p>
 
-const button =
-header.querySelector(".toggle-btn");
+          <p><strong>Skills / Concepts:</strong></p>
+          <ul>
+            <li>System monitoring</li>
+            <li>Electrical data interpretation</li>
+            <li>Applied circuit understanding</li>
+          </ul>
+        </div>
+      </div>
 
-if (content.style.display === "block") {
+    </section>
+  </main>
 
-content.style.display = "none";
+  <script>
+    function toggleProject(header) {
+      const card = header.parentElement;
+      card.classList.toggle("open");
 
-button.textContent = "+";
-
-}
-
-else {
-
-content.style.display = "block";
-
-button.textContent = "-";
-
-}
-
-}
-
-</script>
+      const btn = header.querySelector(".accordion-btn");
+      btn.textContent = card.classList.contains("open") ? "−" : "+";
+    }
+  </script>
 
 </body>
-
 </html>
