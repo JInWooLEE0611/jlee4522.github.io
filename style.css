@@ -453,3 +453,12 @@ body {
     grid-template-columns: 1fr;
   }
 }
+.home-thread {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #5f8fbf;
+
+  letter-spacing: 0.5px;
+}
