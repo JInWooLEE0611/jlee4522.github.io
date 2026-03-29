@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Jinwoo Lee</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Portfolio</a>
-    <a href="about.html">About Me</a>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact Me</a>
-  </nav>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <main class="home">
-    <h1>Projects</h1>
-    <p class="intro">
-      <strong>1. MOSFET I-V Characteristics Experiment</strong><br>
-      A project focused on understanding the electrical behavior of MOSFETs through I-V analysis.
-      The goal is to connect semiconductor theory with actual device behavior.
-      <br><br>
+  <main class="page">
+    <section class="page-title-block">
+      <h1>Projects</h1>
+      <p>Selected academic and engineering projects</p>
+    </section>
 
-      <strong>2. Digital System Design Project</strong><br>
-      A project involving logic design and digital circuit implementation.
-      <br><br>
+    <section class="project-grid">
+      <article class="project-card">
+        <h2>MOSFET I-V Characteristics Experiment</h2>
+        <p>
+          This project focuses on analyzing the current-voltage characteristics of a MOSFET and
+          connecting measured behavior to semiconductor device theory. The goal is to better
+          understand how carrier transport, operating conditions, and device parameters affect
+          electrical performance.
+        </p>
+        <p>
+          Through this project, I aim to strengthen my understanding of semiconductor fundamentals
+          while also practicing experimental analysis and technical communication.
+        </p>
+      </article>
 
-      <strong>3. Solar Panel Monitoring System</strong><br>
-      A system-level project involving measurement, monitoring, and circuit-related design.
-    </p>
+      <article class="project-card">
+        <h2>Digital System Design Project</h2>
+        <p>
+          This project involved designing and analyzing a digital system using logic-based methods.
+          It helped me better understand how hardware logic is structured, optimized, and implemented
+          in a practical engineering setting.
+        </p>
+        <p>
+          The project strengthened my ability to approach hardware problems systematically and to
+          connect abstract design logic with real engineering implementation.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <h2>Solar Panel Monitoring System</h2>
+        <p>
+          In this project, I worked on a system related to monitoring electrical output in a solar
+          panel setup. It gave me experience thinking about measurement, signal interpretation, and
+          the relationship between hardware behavior and real-world system performance.
+        </p>
+        <p>
+          This project also helped me build confidence in presenting engineering work through clear
+          explanation and structured documentation.
+        </p>
+      </article>
+    </section>
   </main>
 </body>
 </html>
