@@ -236,6 +236,8 @@ body {
 
   object-fit: contain;
 
+  object-position: center top;
+
   background-color: white;
 
   border: 4px solid #6ea8dc;
