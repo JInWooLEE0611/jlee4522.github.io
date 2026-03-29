@@ -1,68 +1,255 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Jinwoo Lee</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="topbar">
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+:root {
+  --bg: #f5f9fc;
+  --card: #f4efe8;
+  --blue: #4d88c7;
+  --orange: #d97d4d;
+  --text: #333333;
+  --muted: #666666;
+}
 
-  <main class="page">
-    <section class="page-title-block">
-      <h1>Projects</h1>
-      <p>Selected academic and engineering projects</p>
-    </section>
+* {
+  box-sizing: border-box;
+}
 
-    <section class="project-grid">
-      <article class="project-card">
-        <h2>MOSFET I-V Characteristics Experiment</h2>
-        <p>
-          This project focuses on analyzing the current-voltage characteristics of a MOSFET and
-          connecting measured behavior to semiconductor device theory. The goal is to better
-          understand how carrier transport, operating conditions, and device parameters affect
-          electrical performance.
-        </p>
-        <p>
-          Through this project, I aim to strengthen my understanding of semiconductor fundamentals
-          while also practicing experimental analysis and technical communication.
-        </p>
-      </article>
+html {
+  scroll-behavior: smooth;
+}
 
-      <article class="project-card">
-        <h2>Digital System Design Project</h2>
-        <p>
-          This project involved designing and analyzing a digital system using logic-based methods.
-          It helped me better understand how hardware logic is structured, optimized, and implemented
-          in a practical engineering setting.
-        </p>
-        <p>
-          The project strengthened my ability to approach hardware problems systematically and to
-          connect abstract design logic with real engineering implementation.
-        </p>
-      </article>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-      <article class="project-card">
-        <h2>Solar Panel Monitoring System</h2>
-        <p>
-          In this project, I worked on a system related to monitoring electrical output in a solar
-          panel setup. It gave me experience thinking about measurement, signal interpretation, and
-          the relationship between hardware behavior and real-world system performance.
-        </p>
-        <p>
-          This project also helped me build confidence in presenting engineering work through clear
-          explanation and structured documentation.
-        </p>
-      </article>
-    </section>
-  </main>
-</body>
-</html>
+.topbar {
+  padding: 26px 40px 8px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #b45f52;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  width: min(1100px, 92%);
+  margin: 0 auto 80px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.profile-card {
+  background: #f0ebe4;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+}
+
+.profile-card h1 {
+  margin: 0;
+  font-size: 38px;
+  color: #222;
+}
+
+.profile-line {
+  width: 52px;
+  height: 3px;
+  background: #5e7df1;
+  margin: 16px auto;
+}
+
+.profile-subtitle {
+  margin: 0 0 8px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.profile-school {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.hero-intro {
+  font-size: 22px;
+  max-width: 650px;
+}
+
+.hero-buttons {
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.btn.primary {
+  background: #345cff;
+  color: white;
+}
+
+.btn.secondary {
+  border: 2px solid #333;
+  color: #333;
+}
+
+.content-section {
+  margin: 56px 0;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.section-label {
+  font-size: 38px;
+  font-weight: 800;
+  color: #111;
+  background: #cfe5ff;
+  display: inline-block;
+  padding: 6px 14px;
+  line-height: 1.1;
+}
+
+.section-content {
+  font-size: 18px;
+}
+
+.section-content p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.page-title-block {
+  text-align: center;
+  margin: 48px 0 36px;
+}
+
+.page-title-block h1 {
+  font-size: 58px;
+  color: var(--blue);
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.page-title-block p {
+  margin: 0;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  background: #fbf8f2;
+  border: 4px solid var(--orange);
+  border-radius: 22px;
+  padding: 22px 22px 18px;
+  min-height: 250px;
+}
+
+.project-card h2 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #7a3e2b;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.resume-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.resume-frame {
+  width: 100%;
+  height: 900px;
+  border: none;
+  background: white;
+}
+
+.resume-download {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.resume-download a {
+  color: #345cff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.resume-download a:hover {
+  text-decoration: underline;
+}
+
+.contact-page {
+  text-align: center;
+}
+
+.contact-photo {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 14px auto 24px;
+  display: block;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 42px;
+}
+
+.contact-icons a {
+  color: var(--orange);
+  transition: transform 0.15s ease;
+}
+
+.contact-icons a:hover {
+  transform: translateY
+
