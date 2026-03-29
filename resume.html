@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume | Jinwoo Lee</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Portfolio</a>
-    <a href="about.html">About Me</a>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact Me</a>
-  </nav>
+  <header class="topbar">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <main class="home">
-    <h1>Resume</h1>
-    <p class="intro">
-      My resume will be uploaded here as a PDF file.
-    </p>
+  <main class="page">
+    <section class="page-title-block">
+      <h1>Resume</h1>
+      <p>My current resume is embedded below.</p>
+    </section>
+
+    <section class="resume-wrap">
+      <iframe src="assets/resume.pdf" class="resume-frame" title="Jinwoo Lee Resume"></iframe>
+      <p class="resume-download">
+        <a href="assets/resume.pdf" target="_blank">Open or download resume PDF</a>
+      </p>
+    </section>
   </main>
 </body>
 </html>
