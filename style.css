@@ -235,7 +235,8 @@ body {
   border-radius: 50%;
 
   object-fit: cover;
-  
+
+  object-position: center 42%;
 
   border: 4px solid #6ea8dc;
 
