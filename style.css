@@ -129,8 +129,6 @@ body {
   font-size: 40px;
   font-weight: 800;
   color: var(--blue);
-  text-decoration: underline;
-text-underline-offset: 4px;
 
   -webkit-text-stroke: 1px var(--blue-dark);
 }
