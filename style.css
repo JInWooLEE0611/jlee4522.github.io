@@ -236,12 +236,12 @@ body {
 
   object-fit: cover;
 
-  object-position: center 28%;
+  object-position: center 30%;
 
   border: 4px solid #6ea8dc;
 
-  margin-top: 10px;
-  margin-bottom: 25px;
+  display: block;
+  margin: 10px auto 25px auto;
 }
 
 .contact-icons {
