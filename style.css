@@ -168,6 +168,7 @@ body {
   gap: 26px;
   max-width: 980px;
   margin: 0 auto;
+  align-items: start;
 }
 
 .project-box {
@@ -176,6 +177,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 6px 16px rgba(110, 168, 220, 0.12);
   overflow: hidden;
+  align-self: start;
 }
 
 .project-box-head {
