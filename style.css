@@ -353,3 +353,39 @@ body {
     font-size: 42px;
   }
 }
+
+
+
+
+
+.project-image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.project-figure {
+  margin: 0;
+}
+
+.project-image {
+  width: 100%;
+  display: block;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: white;
+}
+
+.project-figure figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .project-image-grid {
+    grid-template-columns: 1fr;
+  }
+}
