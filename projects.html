@@ -25,91 +25,138 @@
 
     <section class="project-card-grid">
 
-      <!-- Project 1 -->
-      <div class="project-box">
-        <div class="project-box-head" onclick="toggleProject(this)">
-          <div>
-            <h2>MOSFET I-V Characteristic Analysis (ECE1100)</h2>
-            <p class="project-box-date">Ongoing</p>
-          </div>
-          <span class="project-box-plus">+</span>
-        </div>
+     <!-- Project 1 -->
+<div class="project-box">
+  <div class="project-box-head" onclick="toggleProject(this)">
+    <div>
+      <h2>MOSFET I-V Characteristic Analysis (ECE1100)</h2>
+      <p class="project-box-date">Ongoing</p>
+    </div>
+    <span class="project-box-plus">+</span>
+  </div>
 
-        <div class="project-box-body">
-            <p class="project-date">
+  <div class="project-box-body">
+    <p class="project-date">
       Spring 2026
-    </p> 
-          <h3>Project Overview</h3>
-          <p>
-  This project focuses on understanding the fundamental physics behind MOSFET operation and
-  experimentally examining its current–voltage (I–V) characteristics. To prepare for the
-  experiment, I studied the theoretical foundations of semiconductor devices, including
-  carrier behavior, energy-band concepts, and p–n junction physics.
-</p>
+    </p>
 
-<p>
-  Based on this theoretical background, I plan to build a breadboard setup using an n-type
-  MOSFET to measure and analyze its I–V characteristics under different bias conditions.
-  This project is currently in progress and will be updated as experimental data and analysis
-  are completed.
-</p>
+    <h3>Project Overview</h3>
+    <p>
+      This project focuses on understanding the fundamental physics behind MOSFET operation and
+      experimentally examining its current–voltage (I–V) characteristics. To prepare for the
+      experiment, I studied the theoretical foundations of semiconductor devices, including
+      carrier behavior, energy-band concepts, p–n junction physics, and MOS capacitor behavior
+      under different bias conditions.
+    </p>
 
-          <h3>My Experience / Project Concept</h3>
-          <p>
-  To prepare for this project, I focused on building a strong theoretical foundation in
-  semiconductor physics. I studied concepts such as crystal lattice structure, energy–momentum
-  (E–k) diagrams, density of states (DOS), Fermi level, and carrier behavior under thermal
-  equilibrium and non-equilibrium conditions.
-</p>
+    <p>
+      Based on this theoretical background, I built a breadboard setup using an n-channel MOSFET
+      to measure and analyze its I–V characteristics under different gate and drain bias
+      conditions. The project emphasizes connecting device physics theory to practical
+      measurement and data analysis.
+    </p>
 
-<p>
-  I also reviewed carrier transport mechanisms, including drift and diffusion, the Einstein
-  relationship, minority carrier behavior, and the continuity equation. In particular, I
-  studied the physics of the p–n junction, which serves as a fundamental building block
-  for understanding MOSFET operation.
-</p>
+    <h3>My Experience / Project Concept</h3>
+    <p>
+      To prepare for this project, I focused on building a strong theoretical foundation in
+      semiconductor physics. I studied concepts such as crystal lattice structure, energy–momentum
+      (E–k) diagrams, density of states (DOS), Fermi level, and carrier behavior under thermal
+      equilibrium and non-equilibrium conditions.
+    </p>
 
-<p>
-  This theoretical preparation allows me to connect device physics concepts to practical
-  measurements. The project will be updated as experimental results and analysis of MOSFET
-  I–V characteristics are completed.
-</p>
+    <p>
+      I also studied MOS capacitor physics and band diagram behavior under bias, with particular
+      attention to depletion and inversion conditions. In addition, I explored threshold voltage
+      formation, realistic threshold voltage behavior in practical devices, and current–voltage
+      relationships in the linear and saturation regions of MOSFET operation.
+    </p>
 
-          <h3>Skills</h3>
-         <ul>
-  <li>Semiconductor Device Physics</li>
-  <li>MOSFET Operation Principles</li>
-  <li>Carrier Transport (Drift and Diffusion)</li>
-  <li>p–n Junction Analysis</li>
-  <li>Breadboard Circuit Implementation</li>
-  <li>Electrical Measurement and Data Analysis</li>
-</ul>
-          <h3>Project Materials</h3>
-          <ul>
-            <li>
-  <a 
-    href="https://coursera.org/share/77ee5d2268c9be5c9613ec69946ef731" 
-    target="_blank"
-  >
-    Device Physics Lecture Certificate
-  </a>
-</li>
-             <li>
-   <a href="https://share.goodnotes.com/s/6j0AVk76d1sGcHbeNP9gWW"
-   target="_blank"
-   rel="noopener noreferrer">
-  Notes-I (GoodNotes)
-</a>
-  </li>
+    <p>
+      Through this process, I connected theoretical device physics concepts to real experimental
+      measurements by constructing a hardware setup, collecting I–V data, estimating threshold
+      voltage, and analyzing device behavior using plotted measurement results.
+    </p>
 
+    <h3>Key Topics and Concepts Applied</h3>
+    <ul>
+      <li>MOS Capacitor Operation and Band Diagram Under Bias</li>
+      <li>Inversion Layer Formation and Threshold Voltage</li>
+      <li>Realistic Threshold Voltage Estimation from Measured Data</li>
+      <li>MOSFET I–V Characteristics (Linear and Saturation Regions)</li>
+      <li>Gate Leakage Characteristics (Ig–Vg and Ig–Vd Behavior)</li>
+      <li>Breadboard Circuit Implementation and Device Measurement</li>
+      <li>Experimental Data Collection and Curve Analysis</li>
+    </ul>
 
-  <li>
-    <a href="assets/DevicePhysics_Analysis_Report.pdf" download>
-      Analysis Report (PDF)
-    </a>
-          </ul>
-        </div>
-      </div>
+    <h3>Skills</h3>
+    <ul>
+      <li>Semiconductor Device Physics</li>
+      <li>MOSFET Operation Principles</li>
+      <li>MOS Capacitor and Band Diagram Analysis</li>
+      <li>Carrier Transport (Drift and Diffusion)</li>
+      <li>Threshold Voltage Extraction from Experimental Data</li>
+      <li>Breadboard Circuit Implementation</li>
+      <li>Electrical Measurement and Data Analysis</li>
+    </ul>
+
+    <h3>Project Report</h3>
+
+    <div class="project-image-grid">
+      <figure class="project-figure">
+        <img src="assets/pn_mosfet_equations.png" alt="PN junction and MOSFET IV equations notes" class="project-image">
+        <figcaption>Representative notes summarizing PN junction and MOSFET I–V equations.</figcaption>
+      </figure>
+
+      <figure class="project-figure">
+        <img src="assets/mos_band_diagram_inversion.png" alt="MOS band diagram under bias showing inversion" class="project-image">
+        <figcaption>MOS capacitor band diagram under bias illustrating depletion and inversion conditions.</figcaption>
+      </figure>
+
+      <figure class="project-figure">
+        <img src="assets/iv_data_summary.png" alt="Experimental data summary and threshold voltage estimation" class="project-image">
+        <figcaption>Measured I–V characteristics and experimental threshold voltage estimation.</figcaption>
+      </figure>
+
+      <figure class="project-figure">
+        <img src="assets/hardware_implementation.jpg" alt="Breadboard MOSFET hardware implementation" class="project-image">
+        <figcaption>Hardware implementation of the MOSFET measurement setup on a breadboard.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Project Materials</h3>
+    <ul>
+      <li>
+        <a href="https://coursera.org/share/77ee5d2268c9be5c9613ec69946ef731" target="_blank">
+          Device Physics Lecture Certificate
+        </a>
+      </li>
+
+      <li>
+        <a href="https://share.goodnotes.com/s/6j0AVk76d1sGcHbeNP9gWW"
+           target="_blank"
+           rel="noopener noreferrer">
+          Notes (GoodNotes)
+        </a>
+      </li>
+
+      <li>
+        Representative Notes: PN Junction and MOSFET I–V Equations
+      </li>
+
+      <li>
+        MOS Band Diagram Under Bias – Inversion Condition
+      </li>
+
+      <li>
+        Experimental Data Summary and Threshold Voltage Estimation
+      </li>
+
+      <li>
+        Hardware Implementation and Circuit Setup (Breadboard Measurement)
+      </li>
+    </ul>
+  </div>
+</div>
 
       <!-- Project 2 -->
       <div class="project-box">
