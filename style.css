@@ -340,6 +340,12 @@ body {
   .project-card-grid {
     grid-template-columns: 1fr;
   }
+  .project-box.open .project-box-body {
+  display: block;
+}
+  .project-box.open {
+  grid-column: 1 / -1;
+}
 
   .two-col {
     grid-template-columns: 1fr;
@@ -388,4 +394,35 @@ body {
   .project-image-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Image popup modal */
+
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal.show {
+  display: flex;
+}
+
+.image-modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 42px;
+  color: white;
+  cursor: pointer;
 }
