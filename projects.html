@@ -394,15 +394,61 @@
     </section>
   </main>
 
-  <script>
-    function toggleProject(header) {
-      const box = header.parentElement;
-      box.classList.toggle("open");
-      const plus = header.querySelector(".project-box-plus");
-      plus.textContent = box.classList.contains("open") ? "−" : "+";
-    }
-  </script>
+<script>
+  /* 
+    Open / close each project card
+    When the header is clicked, toggle the "open" class
+    and switch the + / − symbol.
+  */
+  function toggleProject(header) {
+    const box = header.parentElement;
+    box.classList.toggle("open");
 
+    const plus = header.querySelector(".project-box-plus");
+    plus.textContent = box.classList.contains("open") ? "−" : "+";
+  }
+
+  /*
+    Open the image modal
+    src = clicked image source
+    altText = clicked image alt text
+  */
+  function openImageModal(src, altText = "") {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    modalImg.src = src;
+    modalImg.alt = altText;
+    modal.classList.add("show");
+  }
+
+  /*
+    Close the image modal
+  */
+  function closeImageModal() {
+    const modal = document.getElementById("imageModal");
+    modal.classList.remove("show");
+  }
+
+  /*
+    Add click event to every project image
+    When an image is clicked, open it in the modal
+  */
+  document.querySelectorAll(".project-image").forEach(img => {
+    img.addEventListener("click", function () {
+      openImageModal(this.src, this.alt);
+    });
+  });
+
+  /*
+    Close modal when pressing ESC
+  */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeImageModal();
+    }
+  });
+</script>
   <div id="imageModal" class="image-modal" onclick="closeImageModal()">
   <span class="image-modal-close">&times;</span>
   <img class="image-modal-content" id="modalImage" alt="">
