@@ -1,3 +1,6 @@
+/* =========================
+   Color variables
+   ========================= */
 :root {
   --bg: #f5fbff;
   --card: #f8fcff;
@@ -9,6 +12,9 @@
   --border: #8fbfe8;
 }
 
+/* =========================
+   Global reset / base
+   ========================= */
 * {
   box-sizing: border-box;
 }
@@ -25,6 +31,9 @@ body {
   line-height: 1.7;
 }
 
+/* =========================
+   Top navigation
+   ========================= */
 .topbar {
   padding: 26px 40px 8px;
 }
@@ -47,6 +56,9 @@ body {
   text-decoration: underline;
 }
 
+/* =========================
+   Main page layout
+   ========================= */
 .page {
   width: min(1100px, 92%);
   margin: 0 auto 80px;
@@ -70,8 +82,9 @@ body {
   font-weight: 600;
 }
 
-/* Home */
-
+/* =========================
+   Home page
+   ========================= */
 .home-hero {
   min-height: 72vh;
   display: flex;
@@ -119,20 +132,16 @@ body {
   letter-spacing: 0.3px;
 }
 
-/*.home-school {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
-  color: #8fbfe8;
-}*/
 .home-school {
   font-size: 40px;
   font-weight: 800;
   color: var(--blue);
-
   -webkit-text-stroke: 1px var(--blue-dark);
 }
 
+/* =========================
+   General content sections
+   ========================= */
 .content-section {
   margin: 56px 0;
 }
@@ -167,8 +176,14 @@ body {
   margin-bottom: 18px;
 }
 
-/* Projects */
+/* =========================
+   Projects page
+   ========================= */
 
+/* 
+  Two-column project card layout.
+  Closed cards stay in a 2-column grid on desktop.
+*/
 .project-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
@@ -178,6 +193,7 @@ body {
   align-items: start;
 }
 
+/* Individual project card */
 .project-box {
   background: #f9fcff;
   border: 3px solid var(--border);
@@ -187,6 +203,7 @@ body {
   align-self: start;
 }
 
+/* Clickable project header */
 .project-box-head {
   display: flex;
   justify-content: space-between;
@@ -211,6 +228,7 @@ body {
   color: var(--blue-light);
 }
 
+/* Plus / minus icon on the right */
 .project-box-plus {
   font-size: 30px;
   font-weight: 700;
@@ -219,6 +237,10 @@ body {
   flex-shrink: 0;
 }
 
+/* 
+  Project content is hidden by default.
+  It appears only when the project card has the .open class.
+*/
 .project-box-body {
   display: none;
   padding: 0 22px 22px;
@@ -227,10 +249,21 @@ body {
   line-height: 1.75;
 }
 
+/* Show body when opened */
 .project-box.open .project-box-body {
   display: block;
 }
 
+/* 
+  IMPORTANT:
+  When a project opens, make it span the entire row.
+  This must be OUTSIDE the media query so it also works on desktop.
+*/
+.project-box.open {
+  grid-column: 1 / -1;
+}
+
+/* Headings inside expanded project body */
 .project-box-body h3 {
   margin-top: 18px;
   margin-bottom: 8px;
@@ -238,11 +271,13 @@ body {
   font-size: 18px;
 }
 
+/* Lists inside project body */
 .project-box-body ul {
   margin-top: 0;
   padding-left: 20px;
 }
 
+/* Links inside project body */
 .project-box-body a {
   color: var(--blue);
   text-decoration: none;
@@ -253,8 +288,46 @@ body {
   text-decoration: underline;
 }
 
-/* Resume */
+/* =========================
+   Project image section
+   ========================= */
 
+/* 
+  Image grid inside each expanded project.
+  auto-fit makes the layout more flexible than fixed 2 columns.
+*/
+.project-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.project-figure {
+  margin: 0;
+}
+
+/* Clickable report images */
+.project-image {
+  width: 100%;
+  display: block;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+}
+
+/* Image caption */
+.project-figure figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* =========================
+   Resume page
+   ========================= */
 .resume-wrap {
   max-width: 900px;
   margin: 0 auto;
@@ -282,8 +355,9 @@ body {
   text-decoration: underline;
 }
 
-/* Contact */
-
+/* =========================
+   Contact page
+   ========================= */
 .contact-page {
   text-align: center;
 }
@@ -314,8 +388,49 @@ body {
   transform: translateY(-2px);
 }
 
-/* Responsive */
+/* =========================
+   Image popup modal
+   ========================= */
 
+/* Full-screen dark overlay */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Show modal when JS adds .show */
+.image-modal.show {
+  display: flex;
+}
+
+/* Enlarged image */
+.image-modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Close button */
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 42px;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* =========================
+   Responsive layout
+   ========================= */
 @media (max-width: 800px) {
   .home-name {
     font-size: 52px;
@@ -337,15 +452,10 @@ body {
     min-height: 62vh;
   }
 
+  /* On mobile, projects naturally become one column */
   .project-card-grid {
     grid-template-columns: 1fr;
   }
-  .project-box.open .project-box-body {
-  display: block;
-}
-  .project-box.open {
-  grid-column: 1 / -1;
-}
 
   .two-col {
     grid-template-columns: 1fr;
@@ -358,71 +468,9 @@ body {
   .page-title-block h1 {
     font-size: 42px;
   }
-}
 
-
-
-
-
-.project-image-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-top: 10px;
-}
-
-.project-figure {
-  margin: 0;
-}
-
-.project-image {
-  width: 100%;
-  display: block;
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  background: white;
-}
-
-.project-figure figcaption {
-  margin-top: 8px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-@media (max-width: 800px) {
+  /* On small screens, image grid becomes one column */
   .project-image-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* Image popup modal */
-
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-}
-
-.image-modal.show {
-  display: flex;
-}
-
-.image-modal-content {
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 12px;
-}
-
-.image-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 42px;
-  color: white;
-  cursor: pointer;
 }
