@@ -474,3 +474,18 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================
+   equation layout
+   ========================= */
+
+.equation-block {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-family: "Georgia", serif;
+  line-height: 1.6;
+}
