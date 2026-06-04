@@ -87,7 +87,14 @@
     <p>
       The transfer curve shows the transition from cutoff to strong inversion. Current below the threshold voltage follows exponential behavior, known as subthreshold conduction.
     </p>
+    
+    <h4>Long-Channel vs. Short-Channel MOSFET</h4>
 
+    <p>
+      Compared with the long-channel device, the short-channel MOSFET shows larger off-state leakage and degraded gate control. This behavior is caused by stronger drain-channel coupling.
+    </p>
+
+    
     <h3>5. Short-Channel Effects</h3>
 
     <h4>Threshold Voltage Roll-Off</h4>
@@ -103,13 +110,6 @@
       The 50 nm device exhibits a more gradual subthreshold slope and higher leakage current. This degradation results from increased short-channel effects and weaker gate control over the channel.
     </p>
 
-    <h4>Long-Channel vs. Short-Channel MOSFET</h4>
-    <a href="assets/long_vs_short_channel.png" target="_blank">
-      <img src="assets/long_vs_short_channel.png" alt="Long-channel and short-channel MOSFET transfer curve comparison" class="project-img">
-    </a>
-    <p>
-      Compared with the long-channel device, the short-channel MOSFET shows larger off-state leakage and degraded gate control. This behavior is caused by stronger drain-channel coupling.
-    </p>
 
     <h4>DIBL</h4>
     <p>
@@ -134,13 +134,33 @@
       A lightly doped drain (LDD) extension was introduced between the channel and the heavily doped drain region. The LDD device exhibits lower leakage current and improved subthreshold behavior because the drain electric field is distributed over a larger distance, reducing DIBL and hot-carrier effects.
     </p>
 
-    <h4>Halo Implantation</h4>
+    <h4>Halo+LDD vs. LDD Implantation</h4>
     <a href="assets/halo_structure.png" target="_blank">
       <img src="assets/halo_structure.png" alt="Halo implantation structure" class="project-img">
     </a>
-    <p>
-      Halo implantation introduces a locally higher body doping concentration near the source and drain junctions. This suppresses depletion-region expansion, improves subthreshold behavior, and reduces DIBL and punch-through effects in short-channel MOSFETs.
-    </p>
+   <p>
+Halo implantation introduces a locally higher body doping concentration near the source and drain junctions. Compared with the LDD-only structure, the Halo+LDD device exhibits a steeper conduction-band profile near the channel edges, indicating stronger electrostatic confinement and improved gate control.
+</p>
+
+<p>
+The additional halo doping suppresses depletion-region encroachment from the source and drain, allowing the channel potential barrier to maintain a more abrupt and well-defined shape. As a result, DIBL, punch-through current, and short-channel effects are reduced while subthreshold behavior is improved.
+</p>
+
+<h4>LDD + HALO vs. Short-Channel : Transfer Characteristic Comparison</h4>
+
+<a href="assets/halo_transfer_comparison.png" target="_blank">
+  <img src="assets/halo_transfer_comparison.png"
+       alt="Transfer characteristic comparison between short-channel and Halo+LDD MOSFET"
+       class="project-img">
+</a>
+
+<p>
+The transfer characteristics of the conventional short-channel MOSFET and the Halo+LDD device were compared under different drain biases. The conventional short-channel device exhibits larger threshold voltage variation and increased off-state leakage as drain voltage increases.
+</p>
+
+<p>
+In contrast, the Halo+LDD structure maintains a steeper subthreshold slope and reduced drain-bias dependence. The improved electrostatic control suppresses DIBL and short-channel effects, resulting in lower leakage current and more stable threshold voltage behavior.
+</p>
 
     <h3>7. Gate-Induced Drain Leakage (GIDL)</h3>
 
