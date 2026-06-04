@@ -44,7 +44,7 @@
     </p>
 
     <h3>2. TCAD Workflow</h3>
-    <img src="images/tcad_workflow.png" alt="Sentaurus Workbench TCAD workflow" class="project-img">
+    <img src="assets/tcad_workflow.png" alt="Sentaurus Workbench TCAD workflow" class="project-img">
     <p>
       Sentaurus Workbench was used to organize the simulation flow. Device structures were created in Sentaurus Structure Editor (SDE), electrical characteristics were simulated in Sentaurus Device (SDevice), and physical quantities were visualized in Sentaurus Visual.
     </p>
@@ -52,13 +52,13 @@
     <h3>3. Device Construction</h3>
 
     <h4>Doping Structure</h4>
-    <img src="images/doping_structure.png" alt="nMOS doping structure" class="project-img">
+    <img src="assets/doping_structure.png" alt="nMOS doping structure" class="project-img">
     <p>
       The nMOS device structure was generated using Sentaurus Structure Editor (SDE). The source and drain regions were heavily doped, while the substrate remained lightly doped to form p-n junctions.
     </p>
 
     <h4>Mesh Structure</h4>
-    <img src="images/mesh_structure.png" alt="TCAD mesh structure" class="project-img">
+    <img src="assets/mesh_structure.png" alt="TCAD mesh structure" class="project-img">
     <p>
       Mesh refinement was applied near the gate oxide and source/drain junctions, where strong electric-field gradients occur. Fine meshing improves numerical accuracy in regions with rapid physical variation.
     </p>
@@ -66,13 +66,13 @@
     <h3>4. MOSFET Fundamentals</h3>
 
     <h4>Output Characteristics</h4>
-    <img src="images/id_vd_output_curve.png" alt="MOSFET Id-Vd output characteristics" class="project-img">
+    <img src="assets/id_vd_output_curve.png" alt="MOSFET Id-Vd output characteristics" class="project-img">
     <p>
       The drain current increases linearly at low drain voltage and gradually enters saturation as the channel approaches pinch-off. Higher gate voltage produces stronger inversion and increases the drain current.
     </p>
 
     <h4>Transfer Characteristics</h4>
-    <img src="images/id_vg_transfer_curve.png" alt="MOSFET Id-Vg transfer characteristics" class="project-img">
+    <img src="assets/id_vg_transfer_curve.png" alt="MOSFET Id-Vg transfer characteristics" class="project-img">
     <p>
       The transfer curve shows the transition from cutoff to strong inversion. Current below the threshold voltage follows exponential behavior, known as subthreshold conduction.
     </p>
@@ -80,7 +80,7 @@
     <h3>5. Short-Channel Effects</h3>
 
     <h4>Threshold Voltage Roll-Off</h4>
-    <img src="images/vth_rolloff.png" alt="Threshold voltage roll-off for different channel lengths" class="project-img">
+    <img src="assets/vth_rolloff.png" alt="Threshold voltage roll-off for different channel lengths" class="project-img">
     <p>
       As channel length decreases, threshold voltage decreases due to charge sharing between the source and drain depletion regions. This effect is known as threshold voltage roll-off.
     </p>
@@ -91,7 +91,7 @@
     </p>
 
     <h4>Long-Channel vs. Short-Channel MOSFET</h4>
-    <img src="images/long_vs_short_channel.png" alt="Long-channel and short-channel MOSFET transfer curve comparison" class="project-img">
+    <img src="assets/long_vs_short_channel.png" alt="Long-channel and short-channel MOSFET transfer curve comparison" class="project-img">
     <p>
       Compared with the long-channel device, the short-channel MOSFET shows larger off-state leakage and degraded gate control. This behavior is caused by stronger drain-channel coupling.
     </p>
@@ -109,14 +109,14 @@
     <h3>6. Short-Channel Improvement</h3>
 
     <h4>LDD Structure</h4>
-    <img src="images/ldd_structure.png" alt="LDD MOSFET structure" class="project-img">
-    <img src="images/ldd_vs_short_channel.png" alt="LDD and conventional short-channel MOSFET comparison" class="project-img">
+    <img src="assets/ldd_structure.png" alt="LDD MOSFET structure" class="project-img">
+    <img src="assets/ldd_vs_short_channel.png" alt="LDD and conventional short-channel MOSFET comparison" class="project-img">
     <p>
       A lightly doped drain (LDD) extension was introduced between the channel and the heavily doped drain region. The LDD device exhibits lower leakage current and improved subthreshold behavior because the drain electric field is distributed over a larger distance, reducing DIBL and hot-carrier effects.
     </p>
 
     <h4>Halo Implantation</h4>
-    <img src="images:halo_structure.png" alt="Halo implantation structure" class="project-img">
+    <img src="assets:halo_structure.png" alt="Halo implantation structure" class="project-img">
     <p>
       Halo implantation introduces a locally higher body doping concentration near the source and drain junctions. This suppresses depletion-region expansion, improves subthreshold behavior, and reduces DIBL and punch-through effects in short-channel MOSFETs.
     </p>
@@ -124,13 +124,13 @@
     <h3>7. Gate-Induced Drain Leakage (GIDL)</h3>
 
     <h4>GIDL Current</h4>
-    <img src="images/gidl_current.png" alt="GIDL current characteristics" class="project-img">
+    <img src="assets/gidl_current.png" alt="GIDL current characteristics" class="project-img">
     <p>
       Under large negative gate bias, strong electric fields near the gate-drain overlap region induce band-to-band tunneling. This leakage mechanism is known as Gate-Induced Drain Leakage (GIDL). The current increase at large negative gate bias indicates the onset of GIDL current.
     </p>
 
     <h4>Current Density Distribution</h4>
-    <img src="images/gidl_current_density.png" alt="GIDL current density distribution" class="project-img">
+    <img src="assets/gidl_current_density.png" alt="GIDL current density distribution" class="project-img">
     <p>
       Current density is concentrated near the gate-drain edge, where the electric field reaches its maximum value. This confirms that GIDL is mainly generated by localized band-to-band tunneling near the drain side.
     </p>
@@ -138,7 +138,7 @@
     <h3>8. SONOS Memory</h3>
 
     <h4>SONOS Structure and Conduction Band Diagram</h4>
-    <img src="images/sonos_band_diagram.png" alt="SONOS conduction band diagram" class="project-img">
+    <img src="assets/sonos_band_diagram.png" alt="SONOS conduction band diagram" class="project-img">
     <p>
       SONOS memory consists of an oxide-nitride-oxide stack, where charge is stored inside the silicon nitride layer. Unlike a floating-gate memory device, SONOS stores charge in localized trap states within the nitride layer.
     </p>
@@ -147,14 +147,14 @@
     </p>
 
     <h4>Programming Operation</h4>
-    <img src="images/sonos_program_trapped_charge.png" alt="SONOS trapped charge under programming voltage" class="project-img">
-    <img src="images/sonos_program_transfer_curve.png" alt="SONOS threshold voltage shift during programming" class="project-img">
+    <img src="assets/sonos_program_trapped_charge.png" alt="SONOS trapped charge under programming voltage" class="project-img">
+    <img src="assets/sonos_program_transfer_curve.png" alt="SONOS threshold voltage shift during programming" class="project-img">
     <p>
       Increasing gate voltage increases electron trapping inside the nitride layer. Higher trapped charge produces a larger threshold voltage shift. The transfer curves shift toward higher threshold voltage as more charge is trapped, representing the programmed memory state.
     </p>
 
     <h4>Erase Operation</h4>
-    <img src="images/sonos_erase_curve.png" alt="SONOS erase operation transfer curve" class="project-img">
+    <img src="assets/sonos_erase_curve.png" alt="SONOS erase operation transfer curve" class="project-img">
     <p>
       During erase operation, a negative gate voltage removes trapped electrons from the nitride layer. As the erase voltage magnitude increases, the transfer curve shifts back toward lower threshold voltage values.
     </p>
