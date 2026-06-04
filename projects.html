@@ -25,167 +25,160 @@
 
     <section class="project-card-grid">
 
-
-      <! -- Project 0 -->
-      <div class ="project-box">
-        <div class="project-box-head" onclick="toggleProject(this)">
-          <div>
-            <h2>TCAD</h2>
-                  <p class="project-box-date">Completed</p>
+```html
+<!-- Project 0 -->
+<div class="project-box">
+  <div class="project-box-head" onclick="toggleProject(this)">
+    <div>
+      <h2>TCAD</h2>
+      <p class="project-box-date">Completed</p>
     </div>
     <span class="project-box-plus">+</span>
   </div>
 
-<div class="project-box-body">
-             <p>
-      1.Introduction
-               This project focuses on understanding Synopsys Sentaurus TCAD simulation. The main implemantation weighs on how to simulate physical devices in virtual settings and visualize I-V characteristics and physical behavior by adjusting parameter by adjusting command code.
-               Through numerical simulation, MOSFET operation, short-channel effects(SCE), device optimization techniques, and 
-               SONOS memory operation were investigated. The objective was to connect theoretical semiconductor concepts with practical device 
-               simulation and visualization.     
+  <div class="project-box-body">
+
+    <h3>1. Introduction</h3>
+    <p>
+      This project focuses on understanding Synopsys Sentaurus TCAD simulation. The main objective was to simulate semiconductor devices in a virtual environment and visualize their electrical and physical behavior by adjusting device parameters and command code. Through numerical simulation, MOSFET operation, short-channel effects (SCE), device optimization techniques, and SONOS memory operation were investigated. This project connected theoretical semiconductor concepts with practical device simulation and visualization.
     </p>
-        <p>
-          2. TCAD Workflow
-          //SONOS workflow pic//
-          Sentaurus Workbench was used to organize the simulation flow. Device structures were created in SDE electrical 
-          characteristics were simulated in SDevice, and physical quantities were visualized in Sentaurus Visual.
-        </p>
 
-  <p>
-          3. Device Cosntruction
+    <h3>2. TCAD Workflow</h3>
+    <img src="images/tcad_workflow.png" alt="Sentaurus Workbench TCAD workflow" class="project-img">
+    <p>
+      Sentaurus Workbench was used to organize the simulation flow. Device structures were created in Sentaurus Structure Editor (SDE), electrical characteristics were simulated in Sentaurus Device (SDevice), and physical quantities were visualized in Sentaurus Visual.
+    </p>
 
-    Doping Structure
-     //Doping Structure pic//
+    <h3>3. Device Construction</h3>
 
-    The nMOS device struture was generated using Sentaurus Structure Editor (SDE). 
-    Source and Drain regions were heavily doped while the substrate remained lightly doped to form p-n junctions.
+    <h4>Doping Structure</h4>
+    <img src="images/doping_structure.png" alt="nMOS doping structure" class="project-img">
+    <p>
+      The nMOS device structure was generated using Sentaurus Structure Editor (SDE). The source and drain regions were heavily doped, while the substrate remained lightly doped to form p-n junctions.
+    </p>
 
-    Mesh Structure
-    //Mesh Structure pic//
+    <h4>Mesh Structure</h4>
+    <img src="images/mesh_structure.png" alt="TCAD mesh structure" class="project-img">
+    <p>
+      Mesh refinement was applied near the gate oxide and source/drain junctions, where strong electric-field gradients occur. Fine meshing improves numerical accuracy in regions with rapid physical variation.
+    </p>
 
-    Mesh refinement was applied near the gate oxide and source/drain junctions where where strong E-field gradients occur. 
-    fine meshing improves numerical accuracy.
+    <h3>4. MOSFET Fundamentals</h3>
 
-    
-        </p>
-        
+    <h4>Output Characteristics</h4>
+    <img src="images/id_vd_output_curve.png" alt="MOSFET Id-Vd output characteristics" class="project-img">
+    <p>
+      The drain current increases linearly at low drain voltage and gradually enters saturation as the channel approaches pinch-off. Higher gate voltage produces stronger inversion and increases the drain current.
+    </p>
 
-  <p>
-          4. MOSFET Fundamentals
-    Output Characteristics
-    //Id-Vg graph//
-    The transfer Curve shows the transition from cutoff to strong inversion. Current below threshold voltage follows exponential 
-    behavior known as subthreshold conduction.
-        </p>
+    <h4>Transfer Characteristics</h4>
+    <img src="images/id_vg_transfer_curve.png" alt="MOSFET Id-Vg transfer characteristics" class="project-img">
+    <p>
+      The transfer curve shows the transition from cutoff to strong inversion. Current below the threshold voltage follows exponential behavior, known as subthreshold conduction.
+    </p>
 
-  <p>
-            5. Short Channel Effects
+    <h3>5. Short-Channel Effects</h3>
 
-    Threshold Voltage Roll-Off
-    //50nm/100nm/300nm/500mnm graph//
+    <h4>Threshold Voltage Roll-Off</h4>
+    <img src="images/vth_rolloff.png" alt="Threshold voltage roll-off for different channel lengths" class="project-img">
+    <p>
+      As channel length decreases, threshold voltage decreases due to charge sharing between the source and drain depletion regions. This effect is known as threshold voltage roll-off.
+    </p>
 
-    As Channel length decreases, threshhold voltage decreases due to charge sharing between source and drain depletion regions.
+    <h4>Subthreshold Swing Degradation</h4>
+    <p>
+      The 50 nm device exhibits a more gradual subthreshold slope and higher leakage current. This degradation results from increased short-channel effects and weaker gate control over the channel.
+    </p>
 
-  // L감소 -> Vth 감소 캡처사진//
+    <h4>Long-Channel vs. Short-Channel MOSFET</h4>
+    <img src="images/long_vs_short_channel.png" alt="Long-channel and short-channel MOSFET transfer curve comparison" class="project-img">
+    <p>
+      Compared with the long-channel device, the short-channel MOSFET shows larger off-state leakage and degraded gate control. This behavior is caused by stronger drain-channel coupling.
+    </p>
 
-    Subthreshold Swing Degradation
+    <h4>DIBL</h4>
+    <p>
+      Increasing drain bias lowers the source-channel potential barrier and effectively reduces threshold voltage. This phenomenon is known as Drain-Induced Barrier Lowering (DIBL).
+    </p>
 
-    The 50 nm device exhibits a more gradual subthreshold slop and higher leakage current. 
-    This degradation results from increased short0channel effects.
+    <h4>Punch-Through</h4>
+    <p>
+      When the source and drain depletion regions merge, carriers can flow directly between the source and drain without sufficient gate control. This leakage mechanism is known as punch-through current.
+    </p>
 
-    Long vs Short Channel
-    //초록빨강 비교그래프//
+    <h3>6. Short-Channel Improvement</h3>
 
-    Compared with the long-channel devices, the short-channel MOSFET shows larger off-state leakage and degraded gate control.
+    <h4>LDD Structure</h4>
+    <img src="images/ldd_structure.png" alt="LDD MOSFET structure" class="project-img">
+    <img src="images/ldd_vs_short_channel.png" alt="LDD and conventional short-channel MOSFET comparison" class="project-img">
+    <p>
+      A lightly doped drain (LDD) extension was introduced between the channel and the heavily doped drain region. The LDD device exhibits lower leakage current and improved subthreshold behavior because the drain electric field is distributed over a larger distance, reducing DIBL and hot-carrier effects.
+    </p>
 
-    DIBL
-    
-    Increasing drain bias lowers the source-channel barrier and effectively reduces threshold voltage. 
-    This phenomenon is known as Drain-Induced Barrier Lowering (DIBL).
+    <h4>Halo Implantation</h4>
+    <img src="images/halo_structure.png" alt="Halo implantation structure" class="project-img">
+    <p>
+      Halo implantation introduces a locally higher body doping concentration near the source and drain junctions. This suppresses depletion-region expansion, improves subthreshold behavior, and reduces DIBL and punch-through effects in short-channel MOSFETs.
+    </p>
 
-    Punch-Through
+    <h3>7. Gate-Induced Drain Leakage (GIDL)</h3>
 
-    when source and rain depletion regions merge, carriers can flow directly between source and drain without gate control, resulting in punch-through current.
+    <h4>GIDL Current</h4>
+    <img src="images/gidl_current.png" alt="GIDL current characteristics" class="project-img">
+    <p>
+      Under large negative gate bias, strong electric fields near the gate-drain overlap region induce band-to-band tunneling. This leakage mechanism is known as Gate-Induced Drain Leakage (GIDL). The current increase at large negative gate bias indicates the onset of GIDL current.
+    </p>
 
-  
-        </p>
+    <h4>Current Density Distribution</h4>
+    <img src="images/gidl_current_density.png" alt="GIDL current density distribution" class="project-img">
+    <p>
+      Current density is concentrated near the gate-drain edge, where the electric field reaches its maximum value. This confirms that GIDL is mainly generated by localized band-to-band tunneling near the drain side.
+    </p>
 
-  <p>
-    6. Short Channel Improvement 
+    <h3>8. SONOS Memory</h3>
 
-    LDD Structure
-    //LDD 그림, LDD vs Short Channel graph//
+    <h4>SONOS Structure and Conduction Band Diagram</h4>
+    <img src="images/sonos_band_diagram.png" alt="SONOS conduction band diagram" class="project-img">
+    <p>
+      SONOS memory consists of an oxide-nitride-oxide stack, where charge is stored inside the silicon nitride layer. Unlike a floating-gate memory device, SONOS stores charge in localized trap states within the nitride layer.
+    </p>
+    <p>
+      The conduction-band profile illustrates the tunneling barrier between silicon and the nitride storage layer. Under programming bias, electrons tunnel through the thin oxide layer and become trapped inside the nitride layer.
+    </p>
 
-    * A lightly Doped drain etention was introduced between the channel and heavily doped drain region.
-    * The LDD device exhibits lower leakage current and improved subthreshold behavior. The drain E0field is distributed over a large distance, reducing DIBL and hot-carrier effects.
+    <h4>Programming Operation</h4>
+    <img src="images/sonos_program_trapped_charge.png" alt="SONOS trapped charge under programming voltage" class="project-img">
+    <img src="images/sonos_program_transfer_curve.png" alt="SONOS threshold voltage shift during programming" class="project-img">
+    <p>
+      Increasing gate voltage increases electron trapping inside the nitride layer. Higher trapped charge produces a larger threshold voltage shift. The transfer curves shift toward higher threshold voltage as more charge is trapped, representing the programmed memory state.
+    </p>
 
-    HALO
-    //Halo 그림//
-    (이것도 설명 써주삼)
-  </p>
+    <h4>Erase Operation</h4>
+    <img src="images/sonos_erase_curve.png" alt="SONOS erase operation transfer curve" class="project-img">
+    <p>
+      During erase operation, a negative gate voltage removes trapped electrons from the nitride layer. As the erase voltage magnitude increases, the transfer curve shifts back toward lower threshold voltage values.
+    </p>
 
-  <p>
-    GIDL Current
-    //첫 GIDL 그래프//
-    Under large negative gate bias, strong E-fields near the gate-drain overlap region induce 
-    band-to-band tunneling. This leakage mechanism is known as Gate-Induced Drain Leakage (GIDL).
-    (곡선 꺾이는부분):The current increase at large negative gate bias indicates the onset of GIDL current.
+    <h3>9. CMOS Integration Theory</h3>
+    <p>
+      CMOS fabrication consists of FEOL processes for transistor formation and BEOL processes for interconnect fabrication. FEOL includes oxidation, photolithography, implantation, shallow trench isolation (STI), and well formation. BEOL includes metallization, chemical mechanical polishing (CMP), and interconnect formation.
+    </p>
 
-    Current Density Distribution
-    //4개그림//
+    <h3>Reflection</h3>
+    <p>
+      Through TCAD simulation, semiconductor concepts that were previously studied only theoretically became visually observable. In particular, short-channel effects, subthreshold conduction, DIBL, GIDL, and SONOS memory operation were better understood by examining electrical characteristics and physical distributions directly from simulation results.
+    </p>
 
-    Current density is concentrated near the gate-drain edge where the electic fiweld reaches its maximum value.
-  </p>
-
-  <p>
-    8. SONOS Memory
-
-    SONOS Structure & Conduction Band Diagram
-   
-    (C1 그림 & 잘라놓은 밴드그림)
-
-    *SONOS memory consists of an oxide-nitride-oxide stack where charge is stored inside the nitride layer (floating gate).
-     *The conduction-band profile illustrates the tunneling barrier between sillicon and the nitride storage layer. Under programming bias, 
-    electon tunnel through the thin oxide layer and become trapped inside the nitride well.
-
-    Programming operation
-    (Vg = 7,8,9 trapped charge + tranfer curve)
-    *Increasing gate voltage increases electron trapping inside the nitride layer. Higher trapped charge produces a large threshold voltage shift.
-    *The Transfer curves shift toward higher threshold voltage as more charge is trapped. This threshold voltage shift represents the stored momory state.
-
-    Erase Operation
-    (-8 -9 -10 -15V graph)
-
-    
-  </p>
-
-  <p>
-    9. CMOS Integration Theory
-    FEOL
-    Oxidation Photolithography Implantation STI Well formation
-    BEOL
-    Metallization CMP Interconnect
-
-    CMOS fabrication consists of FEOL processes for transistor formation and BEOL processes for interconnect fabrication.
-  </p>
-  <p>
-    Reflection
-
-    Through TCAD simulation, semiconductor concepts that were previously studied only theoretically became visually observable. In particular,
-     short-channel effects (SCE), subthreshold conduction, DIBL, GIBL, and SONOS memmory operation were better understood by examining electrical 
-    characteristics and physical distrubutions directly from simulation results.
-  </p>
-  
-<h3>Project Materials</h3>
+    <h3>Project Materials</h3>
     <ul>
       <li>
-
-          실습 Certificate
-        </a>
+        <a href="materials/tcad_certificate.pdf" target="_blank">Training Certificate</a>
       </li>
-        </div>
+    </ul>
+
+  </div>
 </div>
-        
+
 
         
      <!-- Project 1 -->
