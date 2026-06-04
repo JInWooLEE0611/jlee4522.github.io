@@ -504,3 +504,15 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+/* =========================
+   크기조절
+   ========================= */
+
+.project-img {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
