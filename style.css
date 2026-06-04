@@ -506,13 +506,22 @@ body {
 }
 
 /* =========================
-   크기조절
+   image pop
    ========================= */
 
+
+
 .project-img {
-    width: 100%;
-    max-width: 800px;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 8px;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.project-img:hover {
+  transform: scale(1.02);
 }
