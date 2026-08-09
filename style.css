@@ -538,3 +538,9 @@ body {
 .project-link:hover {
   background: #1d4ed8;
 }
+//Debugging RED
+
+.debug-heading {
+  color: #b42318;
+  font-weight: 700;
+}
