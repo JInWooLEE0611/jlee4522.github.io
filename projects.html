@@ -24,7 +24,410 @@
     </section>
 
     <section class="project-card-grid">
+<!-- Project: Semiconductor RTL Training -->
+<div class="project-box">
 
+  <div class="project-box-head" onclick="toggleProject(this)">
+    <div>
+      <h2>Semiconductor RTL Design Intensive Training Program</h2>
+      <p class="project-box-date">Completed</p>
+    </div>
+    <div class="project-box-plus">+</div>
+  </div>
+
+  <div class="project-box-body">
+
+    <p class="project-date">
+      Jun 2026 – Jul 2026
+    </p>
+
+    <h3>1. Introduction</h3>
+    <p>
+      This was a mission-based intensive RTL and FPGA design training
+      program focused on developing fundamental digital design and SoC
+      implementation skills.
+    </p>
+
+    <p>
+      For each mission, only the required specifications, interface
+      requirements, and relevant datasheets were provided. I independently
+      developed the RTL architecture from the initial design concept,
+      implemented the design in Verilog, debugged the system through
+      simulation and hardware analysis, and ultimately verified the design
+      on FPGA hardware.
+    </p>
+
+    <p>
+      The missions progressed from fundamental RTL and finite-state-machine
+      design to peripheral communication, AMBA bus protocols, memory
+      interfaces, and Zynq PS–PL integration, providing a practical
+      foundation in FPGA-based SoC design.
+    </p>
+
+
+    <h3>2. Technical Scope</h3>
+
+    <ul>
+      <li>Verilog RTL Design</li>
+      <li>Finite State Machine (FSM) Design</li>
+      <li>FPGA Synthesis and Implementation</li>
+      <li>SPI Peripheral Controller Design</li>
+      <li>AMBA APB3 Protocol and Custom Slave IP</li>
+      <li>AXI-Based Zynq PS–PL Integration</li>
+      <li>Block RAM (BRAM) Interface Design</li>
+      <li>Vivado ILA Hardware Debugging</li>
+      <li>Bare-Metal C with Vitis</li>
+      <li>Datasheet-Driven Hardware Development</li>
+    </ul>
+
+
+    <!-- ============================= -->
+    <!-- Mission 1 -->
+    <!-- ============================= -->
+
+    <h3>3. Mission 1 — FPGA RTL Fundamentals</h3>
+    <h4>Four-Way Traffic Light Controller</h4>
+
+    <p>
+      Designed a four-way traffic-light controller using a finite state
+      machine, including left-turn vehicle signals and pedestrian signals.
+      Implemented clock division, RTL control logic, XDC pin constraints,
+      FPGA bitstream generation, and on-board verification.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      [Add the specific problem encountered during this mission,
+      how it was diagnosed, and how it was resolved.]
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+
+      <figure class="project-figure">
+        <img src="assets/rtl_traffic_light_demo.jpg"
+             alt="Traffic light FPGA implementation"
+             class="project-image">
+        <figcaption>
+          FPGA hardware demonstration of the traffic-light FSM.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+
+      <figure class="project-figure">
+        <img src="assets/traffic_fsm_notes.jpg"
+             alt="Traffic light FSM design notes"
+             class="project-image">
+        <figcaption>
+          FSM architecture and state-transition design notes.
+        </figcaption>
+      </figure>
+
+      <figure class="project-figure">
+        <img src="assets/traffic_verilog.jpg"
+             alt="Traffic light Verilog source code"
+             class="project-image">
+        <figcaption>
+          Representative Verilog RTL implementation.
+        </figcaption>
+      </figure>
+
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- Mission 2 -->
+    <!-- ============================= -->
+
+    <h3>4. Mission 2 — SPI Peripheral Controller</h3>
+    <h4>MCP3004 ADC Interface</h4>
+
+    <p>
+      Developed an SPI master to sequentially acquire ADC data from
+      three photoresistors through an MCP3004 and implemented calibrated
+      LED activation thresholds. SPI timing and ADC transactions were
+      verified using Vivado ILA.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      [Add SPI timing / SCLK / MOSI / MISO / channel-selection debugging.]
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+
+      <figure class="project-figure">
+        <img src="assets/mcp3004_demo.jpg"
+             alt="MCP3004 FPGA demonstration"
+             class="project-image">
+        <figcaption>
+          Hardware demonstration of sequential ADC acquisition.
+        </figcaption>
+      </figure>
+
+      <figure class="project-figure">
+        <img src="assets/mcp3004_ila.jpg"
+             alt="MCP3004 SPI ILA waveform"
+             class="project-image">
+        <figcaption>
+          SPI transaction captured using Vivado ILA.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+
+      <figure class="project-figure">
+        <img src="assets/mcp3004_notes.jpg"
+             alt="MCP3004 SPI design notes"
+             class="project-image">
+        <figcaption>
+          SPI timing and transaction design notes.
+        </figcaption>
+      </figure>
+
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- Mission 3 -->
+    <!-- ============================= -->
+
+    <h3>5. Mission 3 — AMBA APB3 Slave IP</h3>
+
+    <p>
+      Studied APB3 transaction phases and implemented a custom
+      register-mapped APB3 slave containing sixteen 32-bit registers.
+      The design was verified using an APB master testbench.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      [Add SETUP/ACCESS timing, PSEL/PENABLE/PREADY, or register-map
+      debugging experience.]
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+
+      <figure class="project-figure">
+        <img src="assets/apb3_waveform.jpg"
+             alt="APB3 simulation waveform"
+             class="project-image">
+        <figcaption>
+          APB3 read/write transaction verification.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+      <!-- screenshots / notes -->
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- Mission 4 -->
+    <!-- ============================= -->
+
+    <h3>6. Mission 4 — Zynq PS–PL Integration</h3>
+
+    <p>
+      Configured the ARM Cortex-A9 processing system and executed
+      bare-metal software through Vitis. Verified UART communication
+      and implemented an interrupt-driven LED controller using AXI GPIO
+      and the Zynq Generic Interrupt Controller.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      [Add PS configuration / AXI GPIO / GIC / interrupt debugging.]
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+      <!-- board / block diagram / UART -->
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+      <!-- Vitis code / block diagram / notes -->
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- Mission 5 -->
+    <!-- ============================= -->
+
+    <h3>7. Mission 5 — PS-Side BRAM Access</h3>
+
+    <p>
+      Built an AXI-connected BRAM subsystem and performed a
+      256-word write/read memory-integrity test from bare-metal C
+      running on the Zynq processing system.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      [Add AXI BRAM Controller / address mapping / software testing.]
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+      <!-- PuTTY PASS / BD -->
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+      <!-- C / BD -->
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- Mission 6 -->
+    <!-- ============================= -->
+
+    <h3>8. Mission 6 — PL-Side BRAM Controller</h3>
+
+    <p>
+      Designed a custom BRAM controller in Verilog, packaged the
+      module as Vivado IP, and verified native BRAM read/write
+      transactions using Vivado ILA.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      Debugged reset polarity, clock connectivity, write-enable timing,
+      and BRAM read latency by observing internal control and data
+      signals through Vivado ILA.
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+      <!-- ILA / hardware -->
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+      <!-- RTL screenshot / state diagram -->
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- Mission 7 -->
+    <!-- ============================= -->
+
+    <h3>9. Mission 7 — SPI OLED Controller</h3>
+
+    <p>
+      Implemented a 4-wire SPI controller for an SSD1315 OLED display,
+      including display initialization, command/data control, reset
+      sequencing, and FPGA-based hardware verification.
+    </p>
+
+    <h4 class="debug-heading">
+      Technical Challenges & Debugging
+    </h4>
+
+    <p>
+      [Add initialization sequence / SPI edge / display addressing /
+      reset timing debugging.]
+    </p>
+
+    <h4>Mission Demonstration</h4>
+
+    <div class="project-image-grid">
+      <!-- OLED photo / ILA -->
+    </div>
+
+    <h4>Design Notes & Source Code</h4>
+
+    <div class="project-image-grid">
+      <!-- code / notes / datasheet -->
+    </div>
+
+
+
+    <h3>10. Training Outcome</h3>
+
+    <p>
+      Through the progression of these missions, I developed practical
+      experience translating hardware specifications and peripheral
+      datasheets into RTL architectures, implementing and debugging
+      Verilog designs, and integrating programmable logic with the
+      Zynq processing system.
+    </p>
+
+    <p>
+      The training established a foundation for continuing into more
+      complex FPGA-based SoC and hardware-accelerator projects.
+    </p>
+
+
+    <h3>Project Materials</h3>
+
+    <ul>
+      <li>
+        <a href="assets/rtl_training_certificate.pdf"
+           target="_blank">
+          Training Certificate
+        </a>
+      </li>
+
+      <li>
+        <a href="YOUR_GITHUB_URL"
+           target="_blank">
+          Selected RTL Source Code
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</div>
 
 
 <!-- Project 0 -->
