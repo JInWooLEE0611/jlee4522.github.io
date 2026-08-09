@@ -52,9 +52,10 @@
       For each mission, only the required specifications, interface
       requirements, and relevant datasheets were provided. I independently
       developed the RTL architecture from the initial design concept,
-      implemented the design in Verilog, debugged the system through
-      simulation and hardware analysis, and ultimately verified the design
-      on FPGA hardware.
+      implemented the design in Verilog, and verified it on FPGA hardware.
+      Because the designs were developed independently withoout pre-built RTL solutions, 
+      the process involced substantial hands-on trial and error, allowing me to encounter and
+       resolve practical design and debugging issues firsthand.
     </p>
 
     <p>
@@ -71,7 +72,7 @@
       <li>Verilog RTL Design</li>
       <li>Finite State Machine (FSM) Design</li>
       <li>FPGA Synthesis and Implementation</li>
-      <li>SPI Peripheral Controller Design</li>
+      <li>SPI MASTER Peripheral Controller Design</li>
       <li>AMBA APB3 Protocol and Custom Slave IP</li>
       <li>AXI-Based Zynq PS–PL Integration</li>
       <li>Block RAM (BRAM) Interface Design</li>
@@ -82,10 +83,10 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 1 -->
+    <!-- Mission I -->
     <!-- ============================= -->
 
-    <h3>3. Mission 1 — FPGA RTL Fundamentals</h3>
+    <h3>3. Mission I — FPGA RTL Fundamentals</h3>
     <h4>Four-Way Traffic Light Controller</h4>
 
     <p>
@@ -99,11 +100,17 @@
       Technical Challenges & Debugging
     </h4>
 
-    <p>
-      [Add the specific problem encountered during this mission,
-      how it was diagnosed, and how it was resolved.]
-    </p>
+    <ul class="debug-list">
+  <li>
+    After came out with first hdl draft, I realized the code was made for system clock, not for a-second-period system. So,
+     I scaled my clock system into one-second-period and introduced a flickering system by using a half registered code for LED.
+  </li>
+  <li>
+   Since this was my first mission for the board implementation, I struggled finding XDC reference code with pin matching.
+  </li>
 
+</ul>
+    
     <h4>Mission Demonstration</h4>
 
     <div class="project-image-grid">
@@ -146,10 +153,10 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 2 -->
+    <!-- Mission II -->
     <!-- ============================= -->
 
-    <h3>4. Mission 2 — SPI Peripheral Controller</h3>
+    <h3>4. Mission II — SPI Peripheral Controller</h3>
     <h4>MCP3004 ADC Interface</h4>
 
     <p>
@@ -163,9 +170,19 @@
       Technical Challenges & Debugging
     </h4>
 
-    <p>
-      [Add SPI timing / SCLK / MOSI / MISO / channel-selection debugging.]
-    </p>
+    <ul class="debug-list">
+  <li>
+    Since the only materials given were MCP3004 datasheets and board schematic, it took long time to figure out SPI MASTER transaction
+    and how MCP3004 communicate with master IP. It required some amount of time for self-learing.
+  </li>
+  <li>
+    When 3 photoresistors get analog signals spontaneously, the mechanism how ADC works was one of the issue that I faced
+     for creating FSM. I came up with a sequential access that goes through channel0-channel1-channel2 sequentially in FSM. 
+  </li>
+  <li>
+    Scaling SCLK was one of the hardship to come up with.
+  </li>
+</ul>
 
     <h4>Mission Demonstration</h4>
 
@@ -209,10 +226,10 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 3 -->
+    <!-- Mission III -->
     <!-- ============================= -->
 
-    <h3>5. Mission 3 — AMBA APB3 Slave IP</h3>
+    <h3>5. Mission III — AMBA APB3 Slave IP</h3>
 
     <p>
       Studied APB3 transaction phases and implemented a custom
@@ -224,10 +241,18 @@
       Technical Challenges & Debugging
     </h4>
 
-    <p>
-      [Add SETUP/ACCESS timing, PSEL/PENABLE/PREADY, or register-map
-      debugging experience.]
-    </p>
+       <ul class="debug-list">
+  <li>
+    Coming up with a code just by scanning AMBA specification MODIFIYING.....
+  </li>
+  <li>
+    
+  </li>
+  <li>
+    
+  </li>
+</ul>
+
 
     <h4>Mission Demonstration</h4>
 
@@ -395,11 +420,14 @@
     <h3>10. Training Outcome</h3>
 
     <p>
-      Through the progression of these missions, I developed practical
-      experience translating hardware specifications and peripheral
-      datasheets into RTL architectures, implementing and debugging
-      Verilog designs, and integrating programmable logic with the
-      Zynq processing system.
+      A bunch of inference and analysis were required, since I was no based at
+      this RTL/FPGA field, one thing that I am certain about myself through the progress of these missions,
+      is that I am a good new learner, and I developed practical experience translating hardware specifications
+       and prepheral datasheets into RTL architectures, implementing and debugging Verilog designs.
+      This project-based education also make myself realize that perfection is not always a good tactic for engineer.
+       Sometimes, this perfection will worn you out leaving no energy to debug at the end.
+      So I learned to reason or think straightfowardly for initial design concept.
+      MODIFYING...
     </p>
 
     <p>
