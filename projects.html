@@ -53,8 +53,8 @@
       requirements, and relevant datasheets were provided. I independently
       developed the RTL architecture from the initial design concept,
       implemented the design in Verilog, and verified it on FPGA hardware.
-      Because the designs were developed independently withoout pre-built RTL solutions, 
-      the process involced substantial hands-on trial and error, allowing me to encounter and
+      Because the designs were developed independently without pre-built RTL solutions, 
+      the process involved substantial hands-on trial and error, allowing me to encounter and
        resolve practical design and debugging issues firsthand.
     </p>
 
@@ -238,7 +238,7 @@
 
     <p>
       Studied APB3 transaction phases and implemented a custom
-      register-mapped APB3 slave containing sixteen 32-bit registers.
+      register-mapped APB3 slave for 64-byte size with starting address 0x1000_0000.
       The design was verified using an APB master testbench.
     </p>
 
@@ -248,13 +248,14 @@
 
        <ul class="debug-list">
   <li>
-   Register mapping was one of the intriguing part that I 
+ Analyzing interface scinario using AMBA specification document was the most challenging part of this mission.
+    Distinguishing 'Requester' and 'Completer' to figure out how the communication works between master and slave was also hard
+    but this part worked as an intro of getting to know about chip-transmission-interface.
+     </li>
   <li>
-    
+      Came up with sixteen 32-bit words to map 64 bytes was a minor challenge when creating FSM.
   </li>
-  <li>
-    
-  </li>
+
 </ul>
 
 
@@ -300,15 +301,15 @@
     
  <ul class="debug-list">
   <li>
-   The mission was just telling that I have to use interrupt to make my own LED controller using AXI GPIO and scuGic. 
-    Having no knowledge base on using software driver, I first generate a block diagram that includes AXI GPIO and PS, generate a bitstream, export to Vitis Platform Project, and 
+   The mission was just telling that the use of interrupt was necessary to make my own LED controller using AXI GPIO. 
+    Having no knowledge-base on using software driver, I first generated a block diagram that includes AXI GPIO and PS, generated a bitstream, exported to Vitis Platform Project, and 
     find the example codes for whatever relates to use of interrupt.
   <li>
-    Then I scrap all .h files that are related to interrupt exampel codes, (e.g. parameter.h, scugic.h, xgpio.h etc.) and analyze the 
-    structure of how these instances work in software (what functions do instances include, how the handle works, how Xgpio and ScuGic objects work when interrupt has asserted.)
+    Then I scrapped all .h files that are related to interrupt example codes, (e.g. parameter.h, scugic.h, xgpio.h etc.) and analyze the 
+    structure of how these instances work in software (what functions do instances include, how the handle works, how Xgpio and ScuGic instances work when interrupt has asserted.)
   </li>
   <li>
-    Figuring out Buuton -> AXI GPIO -> Gic -> CPU -> handler() -> XGpio driver, only then I referenced the example code and merged with my LED controller code.
+    Figuring out Buuton -> AXI GPIO -> Gic -> CPU -> handler() -> XGpio driver, only then I referenced the example code and merged with my customed LED controller code.
   </li>
 </ul>
  
@@ -330,7 +331,7 @@
     <!-- Mission V -->
     <!-- ============================= -->
 
-    <h3>7. Mission 5 — PS-Side BRAM Access</h3>
+    <h3>7. Mission V — PS-Side BRAM Access</h3>
 
     <p>
       Built an AXI-connected BRAM subsystem and performed a
@@ -341,10 +342,22 @@
     <h4 class="debug-heading">
       Technical Challenges & Debugging
     </h4>
+    
+ <ul class="debug-list">
+  <li>
+Since preivious mission was using a software drvier to command the cobtroller, likewise I first tried to find 
+    driver instance from the given example codes from platform project that I generated with exported bitstream. As I skimmed through however,
+     there was no configuration or initialization of any related instances for bram controller. (Only ECC test instance was present.)
+    Then I surf around and finally found Xilio.h and also found macro functions for read/write action towards bram controller (XBRAM_OUT32/XBRAM_IN32).
+    So I got to know that bram controller has no driver instance to activate in bare C code.
+    
+  <li>
+    Since the datawidth is 4byte(32bit), I had to match the address aligned with the controller memory access behavior. 
+  </li>
 
-    <p>
-      [Add AXI BRAM Controller / address mapping / software testing.]
-    </p>
+</ul>
+ 
+
 
     <h4>Mission Demonstration</h4>
 
