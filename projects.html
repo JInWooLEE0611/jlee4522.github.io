@@ -101,17 +101,22 @@
     </h4>
 
     <ul class="debug-list">
+      <li>
+   Minor debuggings when merging four one-way Traffic Light FSM modules into one top module such as internal wiring and proper wire type declarations
+        occured.
+  </li>
   <li>
     After came out with first hdl draft, I realized the code was made for system clock, not for a-second-period system. So,
      I scaled my clock system into one-second-period and introduced a flickering system by using a half registered code for LED.
   </li>
   <li>
-   Since this was my first mission for the board implementation, I struggled finding XDC reference code with pin matching.
+   Since this was my first mission for the board implementation, I struggled finding XDC reference code with pin matching. It took a substantial amount of time
+     to sort out the neccessary information from the datasheets and schematics. 
   </li>
 
 </ul>
     
-    <h4>Mission Demonstration</h4>
+    <h4>Mission Demo Material</h4>
 
     <div class="project-image-grid">
 
@@ -173,7 +178,7 @@
     <ul class="debug-list">
   <li>
     Since the only materials given were MCP3004 datasheets and board schematic, it took long time to figure out SPI MASTER transaction
-    and how MCP3004 communicate with master IP. It required some amount of time for self-learing.
+    and how MCP3004 communicate with master IP. It required some amount of time for self-learning.
   </li>
   <li>
     When 3 photoresistors get analog signals spontaneously, the mechanism how ADC works was one of the issue that I faced
@@ -243,8 +248,7 @@
 
        <ul class="debug-list">
   <li>
-    Coming up with a code just by scanning AMBA specification MODIFIYING.....
-  </li>
+   Register mapping was one of the intriguing part that I 
   <li>
     
   </li>
@@ -278,10 +282,10 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 4 -->
+    <!-- Mission IV -->
     <!-- ============================= -->
 
-    <h3>6. Mission 4 — Zynq PS–PL Integration</h3>
+    <h3>6. Mission IV — Zynq PS–PL Integration</h3>
 
     <p>
       Configured the ARM Cortex-A9 processing system and executed
@@ -293,12 +297,22 @@
     <h4 class="debug-heading">
       Technical Challenges & Debugging
     </h4>
-
-    <p>
-      [Add PS configuration / AXI GPIO / GIC / interrupt debugging.]
-    </p>
-
-    <h4>Mission Demonstration</h4>
+    
+ <ul class="debug-list">
+  <li>
+   The mission was just telling that I have to use interrupt to make my own LED controller using AXI GPIO and scuGic. 
+    Having no knowledge base on using software driver, I first generate a block diagram that includes AXI GPIO and PS, generate a bitstream, export to Vitis Platform Project, and 
+    find the example codes for whatever relates to use of interrupt.
+  <li>
+    Then I scrap all .h files that are related to interrupt exampel codes, (e.g. parameter.h, scugic.h, xgpio.h etc.) and analyze the 
+    structure of how these instances work in software (what functions do instances include, how the handle works, how Xgpio and ScuGic objects work when interrupt has asserted.)
+  </li>
+  <li>
+    Figuring out Buuton -> AXI GPIO -> Gic -> CPU -> handler() -> XGpio driver, only then I referenced the example code and merged with my LED controller code.
+  </li>
+</ul>
+ 
+    <h4>Mission Demo Material</h4>
 
     <div class="project-image-grid">
       <!-- board / block diagram / UART -->
@@ -313,7 +327,7 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 5 -->
+    <!-- Mission V -->
     <!-- ============================= -->
 
     <h3>7. Mission 5 — PS-Side BRAM Access</h3>
@@ -347,10 +361,10 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 6 -->
+    <!-- Mission VI -->
     <!-- ============================= -->
 
-    <h3>8. Mission 6 — PL-Side BRAM Controller</h3>
+    <h3>8. Mission VI — PL-Side BRAM Controller</h3>
 
     <p>
       Designed a custom BRAM controller in Verilog, packaged the
@@ -383,10 +397,10 @@
 
 
     <!-- ============================= -->
-    <!-- Mission 7 -->
+    <!-- Mission VII -->
     <!-- ============================= -->
 
-    <h3>9. Mission 7 — SPI OLED Controller</h3>
+    <h3>9. Mission VII — SPI OLED Controller</h3>
 
     <p>
       Implemented a 4-wire SPI controller for an SSD1315 OLED display,
@@ -416,8 +430,9 @@
     </div>
 
 
+    
 
-    <h3>10. Training Outcome</h3>
+    <h3>10. Training Reflection</h3>
 
     <p>
       A bunch of inference and analysis were required, since I was no based at
@@ -426,10 +441,23 @@
        and prepheral datasheets into RTL architectures, implementing and debugging Verilog designs.
       This project-based education also make myself realize that perfection is not always a good tactic for engineer.
        Sometimes, this perfection will worn you out leaving no energy to debug at the end.
-      So I learned to reason or think straightfowardly for initial design concept.
-      MODIFYING...
+      In short, I learned to reason and think straightfowardly for initial design concept.
     </p>
 
+    <p>
+      This mission-based program definitely brought me an unexpected inpiration within my career path as EE studuent.
+      I always have had intellectual discomfort of analog semiconductor field and this craving of knowledge led me to 
+      take this digital education program. This chip-level activity have given a different perspective and wider spectrum in 
+      understanding semiconductor industry (such as, why do we need interface, controller, LDO, PLL, PMIC etc.), even it might change the whole subject of my pathway as EE engineer.
+    </p>
+
+
+     <h3>11. Training Outcome</h3>
+    <p>
+     From the missions, I got friendly to those register based system, the mechanism how the register works within the address, I/O protocols. More comprehensive 
+     education based on computer architecture, without any textbooks or lecture, I learned these knoledges from the project, just by searching up how these protocol communicates.
+    I also lower the barrier of datasheet-driven activities, acquiring specs with newm materials....MODIFYING
+    </p>
     <p>
       The training established a foundation for continuing into more
       complex FPGA-based SoC and hardware-accelerator projects.
