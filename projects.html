@@ -82,43 +82,50 @@
     </ul>
 
 
-    <!-- ============================= -->
-    <!-- Mission I -->
-    <!-- ============================= -->
+   <!-- ===================================================== -->
+<!-- Mission I — Traffic Light Controller -->
+<!-- ===================================================== -->
 
-    <h3>3. Mission I — FPGA RTL Fundamentals</h3>
-    <h4>Four-Way Traffic Light Controller</h4>
+<h3>3. Mission I — FPGA RTL Fundamentals</h3>
+<h4>Four-Way Traffic Light Controller</h4>
 
-    <p>
-      Designed a four-way traffic-light controller using a finite state
-      machine, including left-turn vehicle signals and pedestrian signals.
-      Implemented clock division, RTL control logic, XDC pin constraints,
-      FPGA bitstream generation, and on-board verification.
-    </p>
+<p>
+  Designed a four-way traffic-light controller using a finite state
+  machine, including left-turn vehicle signals and pedestrian signals.
+  Implemented clock division, RTL control logic, XDC pin constraints,
+  FPGA bitstream generation, and on-board verification.
+</p>
 
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
 
-    <ul class="debug-list">
-      <li>
-   Minor debuggings when merging four one-way Traffic Light FSM modules into one top module such as internal wiring and proper wire type declarations
-        occured.
-  </li>
+<ul class="debug-list">
   <li>
-    After came out with first hdl draft, I realized the code was made for system clock, not for a-second-period system. So,
-     I scaled my clock system into one-second-period and introduced a flickering system by using a half registered code for LED.
-  </li>
-  <li>
-   Since this was my first mission for the board implementation, I struggled finding XDC reference code with pin matching. It took a substantial amount of time
-     to sort out the neccessary information from the datasheets and schematics. 
+    Minor debugging was required when merging four one-way traffic-light
+    FSM modules into one top module, including internal wiring and proper
+    wire-type declarations.
   </li>
 
+  <li>
+    After creating the first HDL draft, I realized that the design was
+    operating directly from the system clock rather than using a
+    one-second timing period. I therefore scaled the clock to a
+    one-second period and implemented LED flickering using an additional
+    registered timing signal.
+  </li>
+
+  <li>
+    Since this was my first mission involving board implementation, I
+    initially struggled to find the correct XDC reference information and
+    match the FPGA pins. It took a substantial amount of time to extract
+    the necessary information from the datasheets and board schematics.
+  </li>
 </ul>
-    
-    <h4>Mission Demo Material</h4>
 
-   <div class="project-image-grid">
+<h4>Mission Demonstration</h4>
+
+<div class="project-image-grid">
 
   <figure class="project-figure">
     <video class="project-image" controls preload="metadata">
@@ -133,352 +140,568 @@
 
 </div>
 
-    <h4>Design Notes & Source Code</h4>
+<h4>Implementation & Verification Materials</h4>
 
-    <div class="project-image-grid">
-
-      <figure class="project-figure">
-        <img src="assets/traffic_fsm_notes.jpg"
-             alt="Traffic light FSM design notes"
-             class="project-image">
-        <figcaption>
-          FSM architecture and state-transition design notes.
-        </figcaption>
-      </figure>
-
-      <figure class="project-figure">
-        <img src="assets/traffic_verilog.jpg"
-             alt="Traffic light Verilog source code"
-             class="project-image">
-        <figcaption>
-          Representative Verilog RTL implementation.
-        </figcaption>
-      </figure>
-
-    </div>
-
-
-
-    <!-- ============================= -->
-    <!-- Mission II -->
-    <!-- ============================= -->
-
-    <h3>4. Mission II — SPI Peripheral Controller</h3>
-    <h4>MCP3004 ADC Interface</h4>
-
-    <p>
-      Developed an SPI master to sequentially acquire ADC data from
-      three photoresistors through an MCP3004 and implemented calibrated
-      LED activation thresholds. SPI timing and ADC transactions were
-      verified using Vivado ILA.
-    </p>
-
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
-
-    <ul class="debug-list">
-  <li>
-    Since the only materials given were MCP3004 datasheets and board schematic, it took long time to figure out SPI MASTER transaction
-    and how MCP3004 communicate with master IP. It required some amount of time for self-learning.
-  </li>
-  <li>
-    When 3 photoresistors get analog signals spontaneously, the mechanism how ADC works was one of the issue that I faced
-     for creating FSM. I came up with a sequential access that goes through channel0-channel1-channel2 sequentially in FSM. 
-  </li>
-  <li>
-    Scaling SCLK was one of the hardship to come up with.
-  </li>
-</ul>
-
-    <h4>Mission Demonstration</h4>
-
-    <div class="project-image-grid">
+<div class="project-image-grid">
 
   <figure class="project-figure">
-    <video class="project-image" controls preload="metadata">
-      <source src="assets/MCP3004_ADC_spi_master.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <img src="assets/tb_traffic_light_waveform.jpg"
+         alt="Traffic light FSM simulation waveform"
+         class="project-image">
+
     <figcaption>
-      FPGA demonstration of the MCP3004 SPI master performing sequential ADC acquisition.
+      RTL simulation waveform used to verify the traffic-light FSM
+      before FPGA implementation.
     </figcaption>
   </figure>
 
 </div>
 
+<h4>Design Notes</h4>
+
+<div class="project-image-grid">
+
+  <figure class="project-figure">
+    <img src="assets/traffic_fsm_notes.jpg"
+         alt="Traffic light FSM design notes"
+         class="project-image">
+
+    <figcaption>
+      FSM architecture and state-transition design notes.
+    </figcaption>
+  </figure>
+
+  <figure class="project-figure">
+    <img src="assets/traffic_verilog.jpg"
+         alt="Traffic light Verilog source code"
+         class="project-image">
+
+    <figcaption>
+      Representative Verilog RTL implementation.
+    </figcaption>
+  </figure>
+
+</div>
+
+<h4>Source Code</h4>
+
+<div class="project-links">
+
+  <a href="assets/traffic_light_source_code.v" target="_blank">
+    Verilog RTL
+  </a>
+
+  <a href="assets/traffic_light.xdc" target="_blank">
+    XDC
+  </a>
+
+</div>
 
 
-    <h4>Design Notes & Source Code</h4>
 
-    <div class="project-image-grid">
+<!-- ===================================================== -->
+<!-- Mission II — MCP3004 SPI Master -->
+<!-- ===================================================== -->
 
-      <figure class="project-figure">
-        <img src="assets/mcp3004_notes.jpg"
-             alt="MCP3004 SPI design notes"
-             class="project-image">
-        <figcaption>
-          SPI timing and transaction design notes.
-        </figcaption>
-      </figure>
+<h3>4. Mission II — SPI Peripheral Controller</h3>
+<h4>MCP3004 ADC Interface</h4>
 
-    </div>
+<p>
+  Developed an SPI master to sequentially acquire ADC data from
+  three photoresistors through an MCP3004 and implemented calibrated
+  LED activation thresholds. SPI timing and ADC transactions were
+  verified using Vivado ILA.
+</p>
 
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
 
+<ul class="debug-list">
 
-    <!-- ============================= -->
-    <!-- Mission III -->
-    <!-- ============================= -->
-
-    <h3>5. Mission III — AMBA APB3 Slave IP</h3>
-
-    <p>
-      Studied APB3 transaction phases and implemented a custom
-      register-mapped APB3 slave for 64-byte size with starting address 0x1000_0000.
-      The design was verified using an APB master testbench.
-    </p>
-
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
-
-       <ul class="debug-list">
   <li>
- Analyzing interface scinario using AMBA specification document was the most challenging part of this mission.
-    Distinguishing 'Requester' and 'Completer' to figure out how the communication works between master and slave was also hard
-    but this part worked as an intro of getting to know about chip-transmission-interface.
-     </li>
+    Since the main materials provided were the MCP3004 datasheet and
+    board schematic, I had to independently determine how the SPI master
+    transaction worked and how the MCP3004 communicated with the master
+    IP.
+  </li>
+
   <li>
-      Came up with sixteen 32-bit words to map 64 bytes was a minor challenge when creating FSM.
+    Because three photoresistors produced analog inputs simultaneously,
+    one challenge was determining how to organize ADC acquisition inside
+    the FSM. I implemented sequential access through Channel 0,
+    Channel 1, and Channel 2.
+  </li>
+
+  <li>
+    Determining and generating the appropriate SPI serial-clock timing
+    was another challenge during the implementation.
   </li>
 
 </ul>
 
+<h4>Mission Demonstration</h4>
 
-    <h4>Mission Demonstration</h4>
+<div class="project-image-grid">
 
-    <div class="project-image-grid">
+  <figure class="project-figure">
+    <video class="project-image" controls preload="metadata">
+      <source src="assets/MCP3004_ADC_spi_master.mp4"
+              type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-      <figure class="project-figure">
-        <img src="assets/apb3_waveform.jpg"
-             alt="APB3 simulation waveform"
-             class="project-image">
-        <figcaption>
-          APB3 read/write transaction verification.
-        </figcaption>
-      </figure>
+    <figcaption>
+      FPGA demonstration of the MCP3004 SPI master performing
+      sequential ADC acquisition.
+    </figcaption>
+  </figure>
 
-    </div>
+</div>
 
-    <h4>Design Notes & Source Code</h4>
+<h4>Implementation & Verification Materials</h4>
 
-    <div class="project-image-grid">
-      <!-- screenshots / notes -->
-    </div>
+<div class="project-image-grid">
+
+  <figure class="project-figure">
+    <img src="assets/MCP3004_SPI_datasheets_extracted_info.jpg"
+         alt="MCP3004 datasheet analysis"
+         class="project-image">
+
+    <figcaption>
+      Timing and transaction information extracted from the MCP3004
+      datasheet and used to design the SPI master.
+    </figcaption>
+  </figure>
+
+</div>
+
+<h4>Design Notes</h4>
+
+<div class="project-image-grid">
+
+  <figure class="project-figure">
+    <img src="assets/mcp3004_notes.jpg"
+         alt="MCP3004 SPI design notes"
+         class="project-image">
+
+    <figcaption>
+      SPI timing and transaction design notes.
+    </figcaption>
+  </figure>
+
+</div>
+
+<h4>Source Code</h4>
+
+<div class="project-links">
+
+  <a href="assets/spimaster_mcp3008.v" target="_blank">
+    Verilog RTL
+  </a>
+
+  <a href="assets/tb_spimaster_3004.v" target="_blank">
+    Testbench
+  </a>
+
+</div>
 
 
 
-    <!-- ============================= -->
-    <!-- Mission IV -->
-    <!-- ============================= -->
+<!-- ===================================================== -->
+<!-- Mission III — APB3 Slave -->
+<!-- ===================================================== -->
 
-    <h3>6. Mission IV — Zynq PS–PL Integration</h3>
+<h3>5. Mission III — AMBA APB3 Slave IP</h3>
 
-    <p>
-      Configured the ARM Cortex-A9 processing system and executed
-      bare-metal software through Vitis. Verified UART communication
-      and implemented an interrupt-driven LED controller using AXI GPIO
-      and the Zynq Generic Interrupt Controller.
-    </p>
+<p>
+  Studied APB3 transaction phases and implemented a custom
+  register-mapped APB3 slave for a 64-byte address space starting
+  at 0x1000_0000. The design was verified using an APB master
+  testbench.
+</p>
 
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
-    
- <ul class="debug-list">
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
+
+<ul class="debug-list">
+
   <li>
-   The mission was just telling that the use of interrupt was necessary to make my own LED controller using AXI GPIO. 
-    Having no knowledge-base on using software driver, I first generated a block diagram that includes AXI GPIO and PS, generated a bitstream, exported to Vitis Platform Project, and 
-    find the example codes for whatever relates to use of interrupt.
-  <li>
-    Then I scrapped all .h files that are related to interrupt example codes, (e.g. parameter.h, scugic.h, xgpio.h etc.) and analyze the 
-    structure of how these instances work in software (what functions do instances include, how the handle works, how Xgpio and ScuGic instances work when interrupt has asserted.)
+    Analyzing the interface scenario using the AMBA specification
+    document was the most challenging part of this mission.
+    Distinguishing the requester and completer roles helped me
+    understand how communication occurs between the master and slave.
   </li>
+
   <li>
-    Figuring out Buuton -> AXI GPIO -> Gic -> CPU -> handler() -> XGpio driver, only then I referenced the example code and merged with my customed LED controller code.
+    Mapping the 64-byte address space into sixteen 32-bit registers
+    was another design consideration when creating the FSM and
+    register-access logic.
   </li>
+
 </ul>
- 
-    <h4>Mission Demo Material</h4>
 
-    <div class="project-image-grid">
-      <!-- board / block diagram / UART -->
-    </div>
+<h4>Mission Demonstration</h4>
 
-    <h4>Design Notes & Source Code</h4>
+<div class="project-image-grid">
 
-    <div class="project-image-grid">
-      <!-- Vitis code / block diagram / notes -->
-    </div>
+  <figure class="project-figure">
+    <img src="assets/apb3_waveform.jpg"
+         alt="APB3 simulation waveform"
+         class="project-image">
+
+    <figcaption>
+      APB3 read/write transaction verification.
+    </figcaption>
+  </figure>
+
+</div>
+
+<h4>Implementation & Verification Materials</h4>
+
+<div class="project-image-grid">
+
+  <figure class="project-figure">
+    <img src="assets/APB_SLAVE_FSM_SIMUL.jpg"
+         alt="APB3 slave FSM simulation"
+         class="project-image">
+
+    <figcaption>
+      FSM-level simulation used to verify APB3 transaction sequencing
+      and slave response behavior.
+    </figcaption>
+  </figure>
+
+  <figure class="project-figure">
+    <img src="assets/APB_slave_data_transmission_code.jpg"
+         alt="APB3 slave data transmission RTL"
+         class="project-image">
+
+    <figcaption>
+      Representative RTL implementation of APB3 register access
+      and data transmission logic.
+    </figcaption>
+  </figure>
+
+</div>
+
+<h4>Design Notes</h4>
+
+<div class="project-image-grid">
+  <!-- Add APB3 notes later -->
+</div>
+
+<h4>Source Code</h4>
+
+<div class="project-links">
+
+  <a href="assets/apb3_slave.v" target="_blank">
+    Verilog RTL
+  </a>
+
+</div>
 
 
 
-    <!-- ============================= -->
-    <!-- Mission V -->
-    <!-- ============================= -->
+<!-- ===================================================== -->
+<!-- Mission IV — Zynq PS–PL Integration -->
+<!-- ===================================================== -->
 
-    <h3>7. Mission V — PS-Side BRAM Access</h3>
+<h3>6. Mission IV — Zynq PS–PL Integration</h3>
 
-    <p>
-      Built an AXI-connected BRAM subsystem and performed a
-      256-word write/read memory-integrity test from bare-metal C
-      running on the Zynq processing system.
-    </p>
+<p>
+  Configured the ARM Cortex-A9 processing system and executed
+  bare-metal software through Vitis. Verified UART communication
+  and implemented an interrupt-driven LED controller using AXI GPIO
+  and the Zynq Generic Interrupt Controller.
+</p>
 
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
-    
- <ul class="debug-list">
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
+
+<ul class="debug-list">
+
   <li>
-Since preivious mission was using a software drvier to command the cobtroller, likewise I first tried to find 
-    driver instance from the given example codes from platform project that I generated with exported bitstream. As I skimmed through however,
-     there was no configuration or initialization of any related instances for bram controller. (Only ECC test instance was present.)
-    Then I surf around and finally found Xilio.h and also found macro functions for read/write action towards bram controller (XBRAM_OUT32/XBRAM_IN32).
-    So I got to know that bram controller has no driver instance to activate in bare C code.
-    
+    The mission required an interrupt-based LED controller using AXI GPIO.
+    Since I had no previous experience with software drivers, I first
+    generated the hardware block design, exported the bitstream to Vitis,
+    and studied relevant example code.
+  </li>
+
   <li>
-    Since the datawidth is 4byte(32bit), I had to match the address aligned with the controller memory access behavior. 
+    I analyzed header files and APIs related to GPIO and interrupt handling,
+    including how the XGpio and ScuGic instances are initialized and how
+    interrupt handlers interact with the hardware.
+  </li>
+
+  <li>
+    After understanding the signal and software path from
+    Button → AXI GPIO → GIC → CPU → Handler, I adapted the example
+    structure into my own LED-controller implementation.
   </li>
 
 </ul>
- 
 
+<h4>Mission Demonstration</h4>
 
-    <h4>Mission Demonstration</h4>
+<div class="project-image-grid">
+  <!-- Add block diagram / UART / board image -->
+</div>
 
-    <div class="project-image-grid">
-      <!-- PuTTY PASS / BD -->
-    </div>
+<h4>Design Notes</h4>
 
-    <h4>Design Notes & Source Code</h4>
+<div class="project-image-grid">
+  <!-- Keep or add notes later -->
+</div>
 
-    <div class="project-image-grid">
-      <!-- C / BD -->
-    </div>
+<h4>Source Code</h4>
 
-
-
-    <!-- ============================= -->
-    <!-- Mission VI -->
-    <!-- ============================= -->
-
-    <h3>8. Mission VI — PL-Side BRAM Controller</h3>
-
-    <p>
-      Designed a custom BRAM controller in Verilog, packaged the
-      module as Vivado IP, and verified native BRAM read/write
-      transactions using Vivado ILA.
-    </p>
-
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
-
-    <p>
-      Debugged reset polarity, clock connectivity, write-enable timing,
-      and BRAM read latency by observing internal control and data
-      signals through Vivado ILA.
-    </p>
-
-    <h4>Mission Demonstration</h4>
-
-    <div class="project-image-grid">
-      <!-- ILA / hardware -->
-    </div>
-
-    <h4>Design Notes & Source Code</h4>
-
-    <div class="project-image-grid">
-      <!-- RTL screenshot / state diagram -->
-    </div>
+<div class="project-links">
+  <!-- Add Vitis C source files here if desired -->
+</div>
 
 
 
-    <!-- ============================= -->
-    <!-- Mission VII -->
-    <!-- ============================= -->
+<!-- ===================================================== -->
+<!-- Mission V — PS-Side BRAM Access -->
+<!-- ===================================================== -->
 
-    <h3>9. Mission VII — SPI OLED Controller</h3>
+<h3>7. Mission V — PS-Side BRAM Access</h3>
 
-    <p>
-      Implemented a 4-wire SPI controller for an SSD1315 OLED display,
-      including display initialization, command/data control, reset
-      sequencing, and FPGA-based hardware verification.
-    </p>
+<p>
+  Built an AXI-connected BRAM subsystem and performed a
+  256-word write/read memory-integrity test from bare-metal C
+  running on the Zynq processing system.
+</p>
 
-    <h4 class="debug-heading">
-      Technical Challenges & Debugging
-    </h4>
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
 
-    <p>
-      [Add initialization sequence / SPI edge / display addressing /
-      reset timing debugging.]
-    </p>
+<ul class="debug-list">
 
-    <h4>Mission Demonstration</h4>
+  <li>
+    Initially, I expected the BRAM controller to use a software-driver
+    instance similar to the previous AXI GPIO mission. However, after
+    reviewing the generated platform code and available examples, I found
+    that direct memory-access macros were used instead.
+  </li>
 
-    <div class="project-image-grid">
-      <!-- OLED photo / ILA -->
-    </div>
+  <li>
+    This led me to Xil_IO functions and memory-mapped read/write operations,
+    which helped me understand that the BRAM controller did not require a
+    separate software-driver instance for normal memory access.
+  </li>
 
-    <h4>Design Notes & Source Code</h4>
+  <li>
+    Since the data width was 32 bits, I also had to ensure that addresses
+    were aligned according to 4-byte memory-access boundaries.
+  </li>
 
-    <div class="project-image-grid">
-      <!-- code / notes / datasheet -->
-    </div>
+</ul>
 
+<h4>Mission Demonstration</h4>
 
-    
+<div class="project-image-grid">
+  <!-- Add PuTTY PASS / block diagram -->
+</div>
 
-    <h3>10. Training Reflection</h3>
+<h4>Design Notes</h4>
 
-    <p>
-      A bunch of inference and analysis were required, since I was no based at
-      this RTL/FPGA field, one thing that I am certain about myself through the progress of these missions,
-      is that I am a good new learner, and I developed practical experience translating hardware specifications
-       and prepheral datasheets into RTL architectures, implementing and debugging Verilog designs.
-      This project-based education also make myself realize that perfection is not always a good tactic for engineer.
-       Sometimes, this perfection will worn you out leaving no energy to debug at the end.
-      In short, I learned to reason and think straightfowardly for initial design concept.
-    </p>
+<div class="project-image-grid">
+  <!-- Keep or add notes later -->
+</div>
 
-    <p>
-      This mission-based program definitely brought me an unexpected inpiration within my career path as EE studuent.
-      I always have had intellectual discomfort of analog semiconductor field and this craving of knowledge led me to 
-      take this digital education program. This chip-level activity have given a different perspective and wider spectrum in 
-      understanding semiconductor industry (such as, why do we need interface, controller, LDO, PLL, PMIC etc.), even it might change the whole subject of my pathway as EE engineer.
-    </p>
+<h4>Source Code</h4>
+
+<div class="project-links">
+  <!-- Add bare-metal C source files here -->
+</div>
 
 
-     <h3>11. Training Outcome</h3>
-   <p>
-  Through these missions, I became much more familiar with register-based systems, including how registers work with addresses and how different I/O protocols communicate with peripherals.
+
+<!-- ===================================================== -->
+<!-- Mission VI — PL-Side BRAM Controller -->
+<!-- ===================================================== -->
+
+<h3>8. Mission VI — PL-Side BRAM Controller</h3>
+
+<p>
+  Designed a custom BRAM controller in Verilog, packaged the
+  module as Vivado IP, and verified native BRAM read/write
+  transactions using Vivado ILA.
+</p>
+
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
+
+<p>
+  Debugged reset polarity, clock connectivity, write-enable timing,
+  and BRAM read latency by observing internal control and data
+  signals through Vivado ILA.
+</p>
+
+<h4>Implementation & Verification Materials</h4>
+
+<div class="project-image-grid">
+
+  <figure class="project-figure">
+    <img src="assets/BRAM_CTRL_READ_ILA.png"
+         alt="BRAM controller read transaction captured with Vivado ILA"
+         class="project-image">
+
+    <figcaption>
+      Vivado ILA capture used to verify BRAM read timing,
+      controller state transitions, and read-data behavior.
+    </figcaption>
+  </figure>
+
+</div>
+
+<h4>Design Notes</h4>
+
+<div class="project-image-grid">
+  <!-- Keep or add notes later -->
+</div>
+
+<h4>Source Code</h4>
+
+<div class="project-links">
+  <!-- Add BRAM controller .v file here -->
+</div>
+
+
+
+<!-- ===================================================== -->
+<!-- Mission VII — SPI OLED Controller -->
+<!-- ===================================================== -->
+
+<h3>9. Mission VII — SPI OLED Controller</h3>
+
+<p>
+  Implemented a 4-wire SPI controller for an SSD1315 OLED display,
+  including display initialization, command/data control, reset
+  sequencing, and FPGA-based hardware verification.
+</p>
+
+<h4 class="debug-heading">
+  Technical Challenges & Debugging
+</h4>
+
+<p>
+  Debugging focused on the OLED initialization sequence, reset timing,
+  SPI transaction boundaries, command/data selection, and display-memory
+  addressing required by the device.
+</p>
+
+<h4>Mission Demonstration</h4>
+
+<div class="project-image-grid">
+  <!-- Keep your OLED video / image here -->
+</div>
+
+<h4>Design Notes</h4>
+
+<div class="project-image-grid">
+  <!-- Keep your existing OLED notes here -->
+</div>
+
+<h4>Source Code</h4>
+
+<div class="project-links">
+
+  <a href="assets/display_spi_master.v" target="_blank">
+    Verilog RTL
+  </a>
+
+  <a href="assets/display_spi_master.xdc" target="_blank">
+    XDC
+  </a>
+
+</div>
+
+
+
+<!-- ===================================================== -->
+<!-- Training Reflection -->
+<!-- ===================================================== -->
+
+<h3>10. Training Reflection</h3>
+
+<p>
+  A substantial amount of inference and analysis was required because
+  I did not have a strong background in RTL or FPGA design when I began
+  this training. Through the progression of the missions, I became more
+  confident in my ability to learn unfamiliar technical concepts and
+  translate hardware specifications and peripheral datasheets into RTL
+  architectures and working Verilog implementations.
 </p>
 
 <p>
-  Without relying mainly on textbooks or lectures, I learned many of these concepts directly through the projects by searching how each protocol works and applying the specifications to my own designs. This helped me build a more practical understanding of computer architecture and how different hardware blocks communicate with each other.
+  The project-based process also taught me that perfection is not always
+  the best engineering strategy. Spending too much time trying to make an
+  initial design perfect can leave less time and energy for implementation
+  and debugging. I therefore learned to approach initial designs more
+  directly, verify them incrementally, and improve them through debugging.
 </p>
 
 <p>
-  I also became more comfortable working with datasheets. As I worked with new devices and protocols, I learned how to find timing requirements, register information, initialization sequences, and other specifications from unfamiliar technical documents and use them in actual RTL implementations.
+  This training also gave me a broader perspective on electrical
+  engineering and semiconductor systems. My previous interests were more
+  focused on analog semiconductor devices, but working with FPGA-based
+  digital systems helped me better understand how interfaces, controllers,
+  memories, processing systems, and other hardware blocks interact within
+  a complete system.
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- Training Outcome -->
+<!-- ===================================================== -->
+
+<h3>11. Training Outcome</h3>
+
+<p>
+  Through these missions, I became much more familiar with register-based
+  systems, including how registers work with addresses and how different
+  I/O protocols communicate with peripherals.
 </p>
 
 <p>
-  Overall, the training lowered the barrier to approaching unfamiliar hardware, protocols, and technical documentation, while giving me a practical foundation for more complex FPGA-based SoC and hardware-accelerator projects.
+  Without relying mainly on textbooks or lectures, I learned many of these
+  concepts directly through the projects by searching how each protocol
+  works and applying the specifications to my own designs. This helped me
+  build a more practical understanding of computer architecture and how
+  different hardware blocks communicate with each other.
 </p>
 
-    <h3>Project Materials</h3>
+<p>
+  I also became more comfortable working with datasheets. As I worked with
+  new devices and protocols, I learned how to find timing requirements,
+  register information, initialization sequences, and other specifications
+  from unfamiliar technical documents and use them in actual RTL
+  implementations.
+</p>
+
+<p>
+  Overall, the training lowered the barrier to approaching unfamiliar
+  hardware, protocols, and technical documentation, while giving me a
+  practical foundation for more complex FPGA-based SoC and
+  hardware-accelerator projects.
+</p>
+
+
+
+<!-- ===================================================== -->
+<!-- Project Materials -->
+<!-- ===================================================== -->
+
+<h3>Project Materials</h3>
+
 <ul>
   <li>
     <a href="assets/RTL_Certificate.pdf"
