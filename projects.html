@@ -32,7 +32,7 @@
 
   <div class="project-box-head" onclick="toggleProject(this)">
     <div>
-      <h2>Integrating native BRAM Controller and Display SPI MASTER via AXI4-Lite for PS–PL Communication (AltyZ7)</h2>
+      <h2>Integrating native BRAM Controller and Display SPI MASTER via AXI4-Lite for PS–PL Communication </h2>
       <p class="project-box-date">In Progress</p>
     </div>
 
@@ -55,6 +55,85 @@
       through memory-mapped AXI interfaces.
     </p>
 
+    <p>
+  Unlike the earlier training project, this personal project was rebuilt independently
+  using an Arty Z7-10 Zynq board and an SH1106 128×64 OLED display.
+  I first implemented and tested the native BRAM controller and SPI OLED master separately,
+  then began integrating them into a single PS–PL system.
+  Some portions of the RTL were also refined with the help of AI to improve code organization
+  and make the implementation closer to common industry-style RTL practices.
+</p>
+
+<h4>Useful RTL Design Techniques Learned</h4>
+
+<ol>
+  <li>
+    <strong>Rising-edge detection for control inputs</strong>
+    <pre><code>assign a_rise = a &amp; ~a_prev;</code></pre>
+    <p>
+      By comparing the current value of a signal with its previous value,
+      a one-cycle pulse can be generated when a rising edge occurs.
+      This is useful for converting a level-based input into a one-cycle control event,
+      such as a start pulse.
+      For asynchronous external inputs, this technique can be used after a two-flop synchronizer,
+      which helps reduce metastability risk before edge detection.
+    </p>
+  </li>
+
+  <li>
+    <strong>Parameterized SPI serial-clock generation</strong>
+    <pre><code>localparam integer HALF_DIV_RAW = CLK_HZ / (SPI_HZ * 2);
+
+localparam integer HALF_DIV =
+    (HALF_DIV_RAW &lt; 1) ? 1 : HALF_DIV_RAW;</code></pre>
+
+    <p>
+      Together with logic such as:
+    </p>
+
+    <pre><code>if (divider_count &gt;= HALF_DIV - 1)</code></pre>
+
+    <p>
+      the FPGA system clock can be divided into half-periods to generate the SPI serial clock.
+      Toggling SCLK once every half-period provides a clean and parameterized method
+      for controlling the SPI clock frequency.
+    </p>
+  </li>
+
+  <li>
+    <strong>Start / Busy / Done transaction control</strong>
+    <p>
+      Introducing explicit <code>start</code>, <code>busy</code>, and <code>done</code> signals
+      made the SPI master interface more organized.
+      A start pulse begins a transaction, busy indicates that transmission is in progress,
+      and done provides a clear indication that the complete SPI transaction has finished.
+      This separates transaction-level control from individual SCLK transitions.
+    </p>
+  </li>
+
+  <li>
+    <strong>Bit-index-based grouped transmission</strong>
+    <p>
+      A decrementing <code>bit_index</code> counter provides a clean way to track
+      which bit is currently being transmitted through MOSI.
+      This makes each byte or command transaction easier to organize,
+      and allows the controller to clearly detect when a complete group of bits
+      has been transmitted.
+    </p>
+  </li>
+
+  <li>
+    <strong>Explicit SPI edge behavior</strong>
+    <p>
+      The SPI transfer logic was organized around the behavior of the serial-clock edges.
+      In the SPI mode used for the OLED interface, MOSI is kept stable so that the OLED
+      can sample the current bit on the rising edge of SCLK,
+      while the falling edge is used to shift or prepare the next MOSI bit.
+      This made the relationship between the shift register, MOSI output,
+      and serial-clock timing much easier to understand and debug.
+    </p>
+  </li>
+</ol>
   </div>
 
 </div>
